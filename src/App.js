@@ -1,25 +1,362 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
 
-function App() {
+import { rashiValues, complexionValues, heightValues, weightValues } from "./data";
+
+export default function App() {
+
+
+  useEffect(() => {
+    console.log('App component loaded');
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className="fluid-container text-center p-3">
+        <h1>Quick Marriage Biodata Maker</h1>
       </header>
-    </div>
+
+      <section className="fluid-container text-center p-3">
+        <h3>Personal Details</h3>
+
+        <div className="container">
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked disabled />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Full Name</label>
+                </div>
+                <div className="col text-start">
+                  <input className="form-control" placeholder="Enter full name" />
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked disabled />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Date of Birth</label>
+                </div>
+                <div className="col text-start">
+                  <input className="form-control" aria-label="Date" type="date" />
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked disabled />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Time of Birth</label>
+                </div>
+                <div className="col text-start">
+                  <input className="form-control" aria-label="Time" type="time" />
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Place of Birth</label>
+                </div>
+                <div className="col text-start">
+                  <input className="form-control" placeholder="Enter place of birth" />
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Rashi</label>
+                </div>
+                <div className="col text-start">
+                  <select name="rashi" id="rashi" className="form-select">
+                    {
+                      rashiValues.map((item, index) => <option key={item} value={index}>{item}</option>)
+                    }
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Complexion</label>
+                </div>
+                <div className="col text-start">
+                  <select name="rashi" id="complexion" className="form-select">
+                    {
+                      complexionValues.map((item, index) => <option key={item} value={index}>{item}</option>)
+                    }
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Height</label>
+                </div>
+                <div className="col text-start">
+                  <select name="rashi" id="height" className="form-select">
+                    {
+                      heightValues.map((item, index) => <option key={item} value={index}>{item}</option>)
+                    }
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Weight</label>
+                </div>
+                <div className="col text-start">
+                  <select name="rashi" id="weight" className="form-select">
+                    {
+                      weightValues.map((item, index) => <option key={item} value={index}>{item}</option>)
+                    }
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Education</label>
+                </div>
+                <div className="col text-start">
+                  <input className="form-control" placeholder="Enter highest education" />
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Job/Occupation</label>
+                </div>
+                <div className="col text-start">
+                  <input className="form-control" placeholder="Enter job details" />
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col-auto form-switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div className="col text-start">
+                  <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Religion/Caste</label>
+                </div>
+                <div className="col text-start">
+                  <input className="form-control" placeholder="Enter religion and caste" />
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+        </div>
+
+      </section >
+
+      <section className="fluid-container text-center p-3">
+        <h3>Family Details</h3>
+
+        <div class="container">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-lg-8">
+              <div class="row align-items-center p-1">
+                <div class="col-auto form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div class="col text-start">
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Father's Name</label>
+                </div>
+                <div class="col text-start">
+                  <input class="form-control" placeholder="Enter father's full name" />
+                </div>
+              </div>
+            </div>
+            <div class="col"></div>
+          </div>
+
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-lg-8">
+              <div class="row align-items-center p-1">
+                <div class="col-auto form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div class="col text-start">
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Father's Occupation</label>
+                </div>
+                <div class="col text-start">
+                  <input class="form-control" placeholder="Enter father's occupation" />
+                </div>
+              </div>
+            </div>
+            <div class="col"></div>
+          </div>
+
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-lg-8">
+              <div class="row align-items-center p-1">
+                <div class="col-auto form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div class="col text-start">
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Mother's Name</label>
+                </div>
+                <div class="col text-start">
+                  <input class="form-control" placeholder="Enter mother's full name" />
+                </div>
+              </div>
+            </div>
+            <div class="col"></div>
+          </div>
+
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-lg-8">
+              <div class="row align-items-center p-1">
+                <div class="col-auto form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div class="col text-start">
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Mother's Occupation</label>
+                </div>
+                <div class="col text-start">
+                  <input class="form-control" placeholder="Enter mother's occupation" />
+                </div>
+              </div>
+            </div>
+            <div class="col"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <section className="fluid-container text-center p-3">
+        <h3>Contact Details</h3>
+
+        <div class="container">
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-lg-8">
+              <div class="row align-items-center p-1">
+                <div class="col-auto form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div class="col text-start">
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Contact</label>
+                </div>
+                <div class="col text-start">
+                  <input class="form-control" placeholder="Enter contact number" />
+                </div>
+              </div>
+            </div>
+            <div class="col"></div>
+          </div>
+
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-lg-8">
+              <div class="row align-items-center p-1">
+                <div class="col-auto form-switch">
+                  <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
+                </div>
+                <div class="col text-start">
+                  <label class="form-check-label" for="flexSwitchCheckChecked">Address</label>
+                </div>
+                <div class="col text-start">
+                  <textarea class="form-control" rows="3" placeholder="Enter current address" />
+                </div>
+              </div>
+            </div>
+            <div class="col"></div>
+          </div>
+        
+        </div>
+      </section>
+    </>
   );
 }
-
-export default App;
