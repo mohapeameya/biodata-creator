@@ -15,10 +15,9 @@ export default function App() {
         <h1>Quick Marriage Biodata Maker</h1>
       </header>
 
-      <section className="fluid-container text-center p-3">
-        <h3>Personal Details</h3>
-
-        <div className="container">
+      <section className="fluid-container text-center">
+        <div className="container shadow p-3 mb-3 bg-white rounded">
+          <h3>Personal Details</h3>
           <div className="row">
             <div className="col"></div>
             <div className="col-lg-8">
@@ -236,10 +235,9 @@ export default function App() {
 
       </section >
 
-      <section className="fluid-container text-center p-3">
-        <h3>Family Details</h3>
-
-        <div class="container">
+      <section className="fluid-container text-center">
+        <div class="container shadow p-3 mb-3 bg-white rounded">
+          <h3>Family Details</h3>
           <div class="row">
             <div class="col"></div>
             <div class="col-lg-8">
@@ -315,10 +313,9 @@ export default function App() {
         </div>
       </section>
 
-      <section className="fluid-container text-center p-3">
-        <h3>Contact Details</h3>
-
-        <div class="container">
+      <section className="fluid-container text-center">
+        <div class="container shadow p-3 mb-3 bg-white rounded">
+          <h3>Contact Details</h3>
           <div class="row">
             <div class="col"></div>
             <div class="col-lg-8">
