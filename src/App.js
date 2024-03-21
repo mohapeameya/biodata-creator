@@ -45,6 +45,14 @@ export default function App() {
     })
   }
 
+  const getCopyright = () => {
+    const date = new Date();
+    const currentYear = date.getFullYear();
+    const companyName = "Ameya Mohape";
+    const cp = `© Copyright ${currentYear}, ${companyName}`;
+    return cp;
+}
+
   useEffect(() => {
     console.log('App component loaded');
   }, []);
@@ -188,16 +196,16 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.height.checked}
-                  onChange={e => setBiodata({ ...biodata, height: { checked: e.target.checked, value: biodata.height.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.height.checked}
+                    onChange={e => setBiodata({ ...biodata, height: { checked: e.target.checked, value: biodata.height.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Height</label>
                 </div>
                 <div className="col text-start">
                   <select name="rashi" id="height" className="form-select" defaultValue={defaultHeightIndex}
-                  onChange={e => setBiodata({ ...biodata, height: { checked: biodata.height.checked, value: Number(e.target.value) } })}>
+                    onChange={e => setBiodata({ ...biodata, height: { checked: biodata.height.checked, value: Number(e.target.value) } })}>
                     {
                       heightValues.map((item, index) => <option key={item} value={index}>{item}</option>)
                     }
@@ -213,16 +221,16 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.weight.checked}
-                  onChange={e => setBiodata({ ...biodata, weight: { checked: e.target.checked, value: biodata.weight.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.weight.checked}
+                    onChange={e => setBiodata({ ...biodata, weight: { checked: e.target.checked, value: biodata.weight.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Weight</label>
                 </div>
                 <div className="col text-start">
                   <select name="rashi" id="weight" className="form-select" defaultValue={defaultWeightIndex}
-                  onChange={e => setBiodata({ ...biodata, weight: { checked: biodata.weight.checked, value: Number(e.target.value) }})}>
+                    onChange={e => setBiodata({ ...biodata, weight: { checked: biodata.weight.checked, value: Number(e.target.value) } })}>
                     {
                       weightValues.map((item, index) => <option key={item} value={index}>{item}</option>)
                     }
@@ -238,16 +246,16 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.education.checked}
-                  onChange={e => setBiodata({ ...biodata, education: { checked: e.target.checked, value: biodata.education.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.education.checked}
+                    onChange={e => setBiodata({ ...biodata, education: { checked: e.target.checked, value: biodata.education.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Education</label>
                 </div>
                 <div className="col text-start">
                   <input className="form-control" placeholder="Enter highest education"
-                  onChange={e => setBiodata({ ...biodata, education: { checked: biodata.education.checked, value: e.target.value } })} />
+                    onChange={e => setBiodata({ ...biodata, education: { checked: biodata.education.checked, value: e.target.value } })} />
                 </div>
               </div>
             </div>
@@ -259,16 +267,16 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.job.checked}
-                  onChange={e => setBiodata({ ...biodata, job: { checked: e.target.checked, value: biodata.job.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.job.checked}
+                    onChange={e => setBiodata({ ...biodata, job: { checked: e.target.checked, value: biodata.job.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Job/Occupation</label>
                 </div>
                 <div className="col text-start">
                   <input className="form-control" placeholder="Enter job details"
-                  onChange={e => setBiodata({ ...biodata, job: { checked: biodata.job.checked, value: e.target.value } })} />
+                    onChange={e => setBiodata({ ...biodata, job: { checked: biodata.job.checked, value: e.target.value } })} />
                 </div>
               </div>
             </div>
@@ -280,16 +288,16 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.religionCaste.checked}
-                  onChange={e => setBiodata({ ...biodata, religionCaste: { checked: e.target.checked, value: biodata.religionCaste.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.religionCaste.checked}
+                    onChange={e => setBiodata({ ...biodata, religionCaste: { checked: e.target.checked, value: biodata.religionCaste.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Religion/Caste</label>
                 </div>
                 <div className="col text-start">
                   <input className="form-control" placeholder="Enter religion and caste"
-                  onChange={e => setBiodata({ ...biodata, religionCaste: { checked: biodata.religionCaste.checked, value: e.target.value } })} />
+                    onChange={e => setBiodata({ ...biodata, religionCaste: { checked: biodata.religionCaste.checked, value: e.target.value } })} />
                 </div>
               </div>
             </div>
@@ -457,6 +465,10 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      <footer className="fluid-container text-center p-3">
+        <h6 className="text-white">{getCopyright()}</h6>
+      </footer>
     </>
   );
 }
