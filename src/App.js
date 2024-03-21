@@ -31,6 +31,31 @@ export default function App() {
     filename: { checked: true, value: '' }
   });
 
+  const [morePersonalFields, setMorePersonalFields] = useState([]);
+  const [moreFamilyFields, setMoreFamilyFields] = useState([]);
+  const [moreContactFields, setMoreContactFields] = useState([]);
+
+  const addField = (moreFields, setMoreFields) => {
+    setMoreFields([...moreFields, { name: "", value: "" }]);
+  }
+
+  const removeField = (i, moreFields, setMoreFields) => {
+    let updatedMoreFields = [...moreFields];
+    updatedMoreFields.splice(i, 1);
+    setMoreFields(updatedMoreFields);
+  }
+
+  const handleChange = (i, e, moreFields, setMoreFields) => {
+    // Create a copy of the moreFields array
+    const updatedMoreFields = [...moreFields];
+
+    // Update the specific element in the copied array
+    updatedMoreFields[i][e.target.name] = e.target.value // Update the specified property
+
+    // Update the state with the new array
+    setMoreFields(updatedMoreFields);
+  }
+
   const [showModal, setShowModal] = useState(false);
 
   const handleToggleModal = () => {
@@ -51,7 +76,7 @@ export default function App() {
     const companyName = "Ameya Mohape";
     const cp = `© Copyright ${currentYear}, ${companyName}`;
     return cp;
-}
+  }
 
   useEffect(() => {
     console.log('App component loaded');
@@ -303,6 +328,47 @@ export default function App() {
             </div>
             <div className="col"></div>
           </div>
+
+          {
+            morePersonalFields.map((field, index) =>
+            (<div className="row" key={index}>
+              <div className="col"></div>
+              <div className="col-lg-8">
+                <div className="row align-items-center p-1">
+                  <div className="col-auto">
+                    <button type="button" className="btn btn-danger" onClick={() => removeField(index, morePersonalFields, setMorePersonalFields)}>X</button>
+                  </div>
+                  <div className="col text-start">
+                    <input className="form-control" name="name" placeholder="Enter custom field" value={field.name}
+                      onChange={e => handleChange(index, e, morePersonalFields, setMorePersonalFields)}
+                    />
+                  </div>
+                  <div className="col text-start">
+                    <input className="form-control" name="value" placeholder="Enter custom description" value={field.value}
+                      onChange={e => handleChange(index, e, morePersonalFields, setMorePersonalFields)}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col"></div>
+            </div>)
+            )
+          }
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col mt-2">
+                  <button className="btn btn-secondary" onClick={() => addField(morePersonalFields, setMorePersonalFields)}>
+                    <span>Add</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
         </div>
 
       </section >
@@ -315,16 +381,16 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.father.checked}
-                  onChange={e => setBiodata({ ...biodata, father: { checked: e.target.checked, value: biodata.father.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.father.checked}
+                    onChange={e => setBiodata({ ...biodata, father: { checked: e.target.checked, value: biodata.father.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Father's Name</label>
                 </div>
                 <div className="col text-start">
                   <input className="form-control" placeholder="Enter father's full name"
-                  onChange={e => setBiodata({ ...biodata, father: { checked: biodata.father.checked, value: e.target.value } })} />
+                    onChange={e => setBiodata({ ...biodata, father: { checked: biodata.father.checked, value: e.target.value } })} />
                 </div>
               </div>
             </div>
@@ -336,16 +402,16 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.fatherJob.checked}
-                  onChange={e => setBiodata({ ...biodata, fatherJob: { checked: e.target.checked, value: biodata.fatherJob.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.fatherJob.checked}
+                    onChange={e => setBiodata({ ...biodata, fatherJob: { checked: e.target.checked, value: biodata.fatherJob.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Father's Occupation</label>
                 </div>
                 <div className="col text-start">
                   <input className="form-control" placeholder="Enter father's occupation"
-                  onChange={e => setBiodata({ ...biodata, fatherJob: { checked: biodata.fatherJob.checked, value: e.target.value } })} />
+                    onChange={e => setBiodata({ ...biodata, fatherJob: { checked: biodata.fatherJob.checked, value: e.target.value } })} />
                 </div>
               </div>
             </div>
@@ -357,16 +423,16 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.mother.checked}
-                  onChange={e => setBiodata({ ...biodata, mother: { checked: e.target.checked, value: biodata.mother.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.mother.checked}
+                    onChange={e => setBiodata({ ...biodata, mother: { checked: e.target.checked, value: biodata.mother.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Mother's Name</label>
                 </div>
                 <div className="col text-start">
                   <input className="form-control" placeholder="Enter mother's full name"
-                  onChange={e => setBiodata({ ...biodata, mother: { checked: biodata.mother.checked, value: e.target.value } })} />
+                    onChange={e => setBiodata({ ...biodata, mother: { checked: biodata.mother.checked, value: e.target.value } })} />
                 </div>
               </div>
             </div>
@@ -378,16 +444,56 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.motherJob.checked}
-                  onChange={e => setBiodata({ ...biodata, motherJob: { checked: e.target.checked, value: biodata.motherJob.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.motherJob.checked}
+                    onChange={e => setBiodata({ ...biodata, motherJob: { checked: e.target.checked, value: biodata.motherJob.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Mother's Occupation</label>
                 </div>
                 <div className="col text-start">
                   <input className="form-control" placeholder="Enter mother's occupation"
-                  onChange={e => setBiodata({ ...biodata, motherJob: {checked: biodata.motherJob.checked, value: e.target.value } })} />
+                    onChange={e => setBiodata({ ...biodata, motherJob: { checked: biodata.motherJob.checked, value: e.target.value } })} />
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          {
+            moreFamilyFields.map((field, index) =>
+            (<div className="row" key={index}>
+              <div className="col"></div>
+              <div className="col-lg-8">
+                <div className="row align-items-center p-1">
+                  <div className="col-auto">
+                    <button type="button" className="btn btn-danger" onClick={() => removeField(index, moreFamilyFields, setMoreFamilyFields)}>X</button>
+                  </div>
+                  <div className="col text-start">
+                    <input className="form-control" name="name" placeholder="Enter custom field" value={field.name}
+                      onChange={e => handleChange(index, e, moreFamilyFields, setMoreFamilyFields)}
+                    />
+                  </div>
+                  <div className="col text-start">
+                    <input className="form-control" name="value" placeholder="Enter custom description" value={field.value}
+                      onChange={e => handleChange(index, e, moreFamilyFields, setMoreFamilyFields)}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col"></div>
+            </div>)
+            )
+          }
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col mt-2">
+                  <button className="btn btn-secondary" onClick={() => addField(moreFamilyFields, setMoreFamilyFields)}>
+                    <span>Add</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -405,16 +511,16 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.contact.checked}
-                  onChange={e => setBiodata({ ...biodata, contact: { checked: e.target.checked, value: biodata.contact.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.contact.checked}
+                    onChange={e => setBiodata({ ...biodata, contact: { checked: e.target.checked, value: biodata.contact.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Contact</label>
                 </div>
                 <div className="col text-start">
                   <input className="form-control" placeholder="Enter contact number"
-                  onChange={e => setBiodata({ ...biodata, contact: { checked: biodata.contact.checked, value: e.target.value } })} />
+                    onChange={e => setBiodata({ ...biodata, contact: { checked: biodata.contact.checked, value: e.target.value } })} />
                 </div>
               </div>
             </div>
@@ -426,16 +532,56 @@ export default function App() {
             <div className="col-lg-8">
               <div className="row align-items-center p-1">
                 <div className="col-auto form-switch">
-                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" 
-                  checked={biodata.address.checked}
-                  onChange={e => setBiodata({ ...biodata, address: { checked: e.target.checked, value: biodata.address.value } })}/>
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                    checked={biodata.address.checked}
+                    onChange={e => setBiodata({ ...biodata, address: { checked: e.target.checked, value: biodata.address.value } })} />
                 </div>
                 <div className="col text-start">
                   <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Address</label>
                 </div>
                 <div className="col text-start">
                   <textarea className="form-control" rows="3" placeholder="Enter current address"
-                  onChange={e => setBiodata({ ...biodata, address: { checked: biodata.address.checked, value: e.target.value } })} />
+                    onChange={e => setBiodata({ ...biodata, address: { checked: biodata.address.checked, value: e.target.value } })} />
+                </div>
+              </div>
+            </div>
+            <div className="col"></div>
+          </div>
+
+          {
+            moreContactFields.map((field, index) =>
+            (<div className="row" key={index}>
+              <div className="col"></div>
+              <div className="col-lg-8">
+                <div className="row align-items-center p-1">
+                  <div className="col-auto">
+                    <button type="button" className="btn btn-danger" onClick={() => removeField(index, moreContactFields, setMoreContactFields)}>X</button>
+                  </div>
+                  <div className="col text-start">
+                    <input className="form-control" name="name" placeholder="Enter custom field" value={field.name}
+                      onChange={e => handleChange(index, e, moreContactFields, setMoreContactFields)}
+                    />
+                  </div>
+                  <div className="col text-start">
+                    <input className="form-control" name="value" placeholder="Enter custom description" value={field.value}
+                      onChange={e => handleChange(index, e, moreContactFields, setMoreContactFields)}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col"></div>
+            </div>)
+            )
+          }
+
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-lg-8">
+              <div className="row align-items-center p-1">
+                <div className="col mt-2">
+                  <button className="btn btn-secondary" onClick={() => addField(moreContactFields, setMoreContactFields)}>
+                    <span>Add</span>
+                  </button>
                 </div>
               </div>
             </div>
