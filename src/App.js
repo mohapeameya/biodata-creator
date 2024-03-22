@@ -641,7 +641,6 @@ export default function App() {
 
           <section className="fluid-container text-center">
             <div className="container p-3 mb-3">
-              {/* <h3>Add Photo</h3> */}
               <div className="row">
                 <div className="col"></div>
                 <div className="col-lg-8">
@@ -673,7 +672,6 @@ export default function App() {
               </div>
             </div>
           </section>
-
         </>
       }
 
