@@ -30,7 +30,7 @@ export default function App() {
     motherJob: { checked: true, value: '' },
     contact: { checked: true, value: '' },
     address: { checked: true, value: '' },
-    image: { checked: true, value: '' },
+    image: { checked: false, value: '' },
     filename: { checked: true, value: '' }
   });
 
@@ -110,22 +110,22 @@ export default function App() {
   return (
     <>
       <header className="fluid-container text-center p-3">
-        <h1 className="text-white"><i className="bi bi-hearts text-danger"></i>Quick Marriage Biodata Maker</h1>
+        <h1 className="text-white">Quick Marriage Biodata Maker</h1>
       </header>
 
       {preview ?
         <section className="fluid-container text-center">
           <PDFViewer width="380" height="540" showToolbar={false}>
-            <PDFDoc />
+            <PDFDoc {...biodata}/>
           </PDFViewer>
           <div className="container p-3 mb-3">
             <div className="row">
               <div className="col">
-                <button className="btn btn-secondary mx-3" onClick={handlePreview}><i class="bi bi-pencil pe-1"></i>Edit biodata</button>
-                <BlobProvider document={<PDFDoc />}>
+                <button className="btn btn-secondary mx-3" onClick={handlePreview}><i className="bi bi-pencil pe-1"></i>Edit biodata</button>
+                <BlobProvider document={<PDFDoc {...biodata} />}>
                   {({ blob, url, loading, error }) =>
-                  (loading ? <button className="btn btn-primary mx-3" disabled><i class="bi bi-download pe-1"></i>Download</button> :
-                    <button className="btn btn-primary mx-3" onClick={() => handleDownload(blob)}><i class="bi bi-download pe-1"></i>Download</button>)
+                  (loading ? <button className="btn btn-primary mx-3" disabled><i className="bi bi-download pe-1"></i>Download</button> :
+                    <button className="btn btn-primary mx-3" onClick={() => handleDownload(blob)}><i className="bi bi-download pe-1"></i>Download</button>)
                   }
                 </BlobProvider>
               </div>
@@ -382,7 +382,7 @@ export default function App() {
                   <div className="col-lg-8">
                     <div className="row align-items-center p-1">
                       <div className="col-auto px-0">
-                        <button type="button" className="btn btn-danger" onClick={() => removeField(index, morePersonalFields, setMorePersonalFields)}><i className="bi bi-trash3-fill"></i></button>
+                        <button type="button" className="btn" onClick={() => removeField(index, morePersonalFields, setMorePersonalFields)}><i className="bi bi-trash3-fill text-danger"></i></button>
                       </div>
                       <div className="col text-start px-3">
                         <input className="form-control" name="name" placeholder="Enter custom field" value={field.name}
@@ -511,7 +511,7 @@ export default function App() {
                   <div className="col-lg-8">
                     <div className="row align-items-center p-1">
                       <div className="col-auto px-0">
-                        <button type="button" className="btn btn-danger" onClick={() => removeField(index, moreFamilyFields, setMoreFamilyFields)}><i className="bi bi-trash3-fill"></i></button>
+                        <button type="button" className="btn" onClick={() => removeField(index, moreFamilyFields, setMoreFamilyFields)}><i className="bi bi-trash3-fill text-danger"></i></button>
                       </div>
                       <div className="col text-start px-3">
                         <input className="form-control" name="name" placeholder="Enter custom field" value={field.name}
@@ -599,7 +599,7 @@ export default function App() {
                   <div className="col-lg-8">
                     <div className="row align-items-center p-1">
                       <div className="col-auto px-0">
-                        <button type="button" className="btn btn-danger" onClick={() => removeField(index, moreContactFields, setMoreContactFields)}><i className="bi bi-trash3-fill"></i></button>
+                        <button type="button" className="btn" onClick={() => removeField(index, moreContactFields, setMoreContactFields)}><i className="bi bi-trash3-fill text-danger"></i></button>
                       </div>
                       <div className="col text-start px-3">
                         <input className="form-control" name="name" placeholder="Enter custom field" value={field.name}
