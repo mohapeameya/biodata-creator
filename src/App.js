@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ReactModal from 'react-modal';
 import CropPhoto from './components/cropphoto/CropPhoto'
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import { rashiValues, complexionValues, heightValues, weightValues } from "./data";
 
@@ -85,12 +86,12 @@ export default function App() {
   return (
     <>
       <header className="fluid-container text-center p-3">
-        <h1 className="text-white">Quick Marriage Biodata Maker</h1>
+        <h1 className="text-white"><i className="bi bi-hearts"></i>Quick Marriage Biodata Maker</h1>
       </header>
 
       <section className="fluid-container text-center">
         <div className="container shadow p-3 mb-3 bg-white rounded">
-          <h3>Personal Details</h3>
+          <h3><i className="bi bi-person"></i>Personal Details</h3>
           <div className="row">
             <div className="col"></div>
             <div className="col-lg-8">
@@ -335,10 +336,10 @@ export default function App() {
               <div className="col"></div>
               <div className="col-lg-8">
                 <div className="row align-items-center p-1">
-                  <div className="col-auto">
-                    <button type="button" className="btn btn-danger" onClick={() => removeField(index, morePersonalFields, setMorePersonalFields)}>X</button>
+                  <div className="col-auto px-0">
+                    <button type="button" className="btn btn-danger" onClick={() => removeField(index, morePersonalFields, setMorePersonalFields)}><i className="bi bi-trash3-fill"></i></button>
                   </div>
-                  <div className="col text-start">
+                  <div className="col text-start px-3">
                     <input className="form-control" name="name" placeholder="Enter custom field" value={field.name}
                       onChange={e => handleChange(index, e, morePersonalFields, setMorePersonalFields)}
                     />
@@ -361,7 +362,7 @@ export default function App() {
               <div className="row align-items-center p-1">
                 <div className="col mt-2">
                   <button className="btn btn-secondary" onClick={() => addField(morePersonalFields, setMorePersonalFields)}>
-                    <span>Add</span>
+                    <span><i class="bi bi-plus-circle pe-1"></i>Add</span>
                   </button>
                 </div>
               </div>
@@ -375,7 +376,7 @@ export default function App() {
 
       <section className="fluid-container text-center">
         <div className="container shadow p-3 mb-3 bg-white rounded">
-          <h3>Family Details</h3>
+          <h3><i className="bi bi-people p-1"></i>Family Details</h3>
           <div className="row">
             <div className="col"></div>
             <div className="col-lg-8">
@@ -466,10 +467,10 @@ export default function App() {
               <div className="col"></div>
               <div className="col-lg-8">
                 <div className="row align-items-center p-1">
-                  <div className="col-auto">
-                    <button type="button" className="btn btn-danger" onClick={() => removeField(index, moreFamilyFields, setMoreFamilyFields)}>X</button>
+                  <div className="col-auto px-0">
+                    <button type="button" className="btn btn-danger" onClick={() => removeField(index, moreFamilyFields, setMoreFamilyFields)}><i className="bi bi-trash3-fill"></i></button>
                   </div>
-                  <div className="col text-start">
+                  <div className="col text-start px-3">
                     <input className="form-control" name="name" placeholder="Enter custom field" value={field.name}
                       onChange={e => handleChange(index, e, moreFamilyFields, setMoreFamilyFields)}
                     />
@@ -492,7 +493,7 @@ export default function App() {
               <div className="row align-items-center p-1">
                 <div className="col mt-2">
                   <button className="btn btn-secondary" onClick={() => addField(moreFamilyFields, setMoreFamilyFields)}>
-                    <span>Add</span>
+                    <span><i class="bi bi-plus-circle pe-1"></i>Add</span>
                   </button>
                 </div>
               </div>
@@ -505,7 +506,7 @@ export default function App() {
 
       <section className="fluid-container text-center">
         <div className="container shadow p-3 mb-3 bg-white rounded">
-          <h3>Contact Details</h3>
+          <h3><i className="bi bi-telephone p-1"></i>Contact Details</h3>
           <div className="row">
             <div className="col"></div>
             <div className="col-lg-8">
@@ -554,10 +555,10 @@ export default function App() {
               <div className="col"></div>
               <div className="col-lg-8">
                 <div className="row align-items-center p-1">
-                  <div className="col-auto">
-                    <button type="button" className="btn btn-danger" onClick={() => removeField(index, moreContactFields, setMoreContactFields)}>X</button>
+                  <div className="col-auto px-0">
+                    <button type="button" className="btn btn-danger" onClick={() => removeField(index, moreContactFields, setMoreContactFields)}><i className="bi bi-trash3-fill"></i></button>
                   </div>
-                  <div className="col text-start">
+                  <div className="col text-start px-3">
                     <input className="form-control" name="name" placeholder="Enter custom field" value={field.name}
                       onChange={e => handleChange(index, e, moreContactFields, setMoreContactFields)}
                     />
@@ -580,7 +581,7 @@ export default function App() {
               <div className="row align-items-center p-1">
                 <div className="col mt-2">
                   <button className="btn btn-secondary" onClick={() => addField(moreContactFields, setMoreContactFields)}>
-                    <span>Add</span>
+                    <span><i class="bi bi-plus-circle pe-1"></i>Add</span>
                   </button>
                 </div>
               </div>
@@ -604,11 +605,11 @@ export default function App() {
               <div className="row align-items-center p-1">
                 <div className="col">
                   <button className="btn btn-secondary" onClick={handleToggleModal}>
-                    {biodata.image.value ? (<span>Replace Photo</span>) : (<span>Add Photo</span>)}
+                    {biodata.image.value ? (<span><i className="bi bi-image p-1"></i>Replace Photo</span>) : (<span><i className="bi bi-image p-1"></i>Add Photo</span>)}
                   </button>
                 </div>
                 <div className="col">
-                  <button className="btn btn-primary" onClick={() => { }}>Preview</button>
+                  <button className="btn btn-primary" onClick={() => { }}><i class="bi bi-file-earmark-richtext pe-1"></i>Preview</button>
                 </div>
               </div>
             </div>
