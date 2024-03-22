@@ -86,7 +86,7 @@ export default function App() {
   return (
     <>
       <header className="fluid-container text-center p-3">
-        <h1 className="text-white"><i className="bi bi-hearts"></i>Quick Marriage Biodata Maker</h1>
+        <h1 className="text-white"><i className="bi bi-hearts text-danger"></i>Quick Marriage Biodata Maker</h1>
       </header>
 
       <section className="fluid-container text-center">

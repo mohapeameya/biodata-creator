@@ -168,14 +168,18 @@ export default function CropPhoto({ closeModal = () => { }, handleCroppedImage =
 
       {!imgSrc && (
         <>
-          <div className='row'>
-            <div className='col'>
-              <input className='form-control' type="file" accept="image/*" onChange={onSelectFile} />
+          <section className="fluid-container text-center">
+            <div className="container p-3 mb-3 bg-white rounded">
+              <div className="row">
+                <div className="col">
+                  <input className='form-control' type="file" accept="image/*" onChange={onSelectFile} />
+                </div>
+                <div className="col">
+                  <button className="btn btn-secondary" onClick={closeModal}>Cancel</button>
+                </div>
+              </div>
             </div>
-            <div className='col'>
-              <button className="btn btn-secondary" onClick={closeModal}>Cancel</button>
-            </div>
-          </div>
+          </section>
         </>
       )}
 
@@ -211,7 +215,7 @@ export default function CropPhoto({ closeModal = () => { }, handleCroppedImage =
         <div className='col-md p-3'>
           {!!imgSrc && (
             <>
-              <div className='col'>Profile photo</div>
+              <div className='col'><h5>Uploaded Photo</h5></div>
               <div className='col'>
                 <ReactCrop
                   crop={crop}
@@ -238,7 +242,7 @@ export default function CropPhoto({ closeModal = () => { }, handleCroppedImage =
         <div className='col-md p-3'>
           {!!completedCrop && (
             <>
-              <div className='col'>Preview photo</div>
+              <div className='col'><h5>Preview</h5></div>
               <div className='col'>
                 <canvas
                   ref={previewCanvasRef}
@@ -256,9 +260,18 @@ export default function CropPhoto({ closeModal = () => { }, handleCroppedImage =
         </div>
       </div>
       {!!completedCrop && (
-        <div className='row'>
+        <section className="fluid-container text-center">
+          <div className="container bg-black rounded">
+            <div className="row">
+              <div className="col">
+                <button className="btn btn-primary" onClick={onDownloadCropClick}>Done</button>
+              </div>
+              <div className="col">
+                <button className="btn btn-secondary" onClick={closeModal}>Cancel</button>
+              </div>
+            </div>
+          </div>
           <div>
-            <button className="btn btn-primary" onClick={onDownloadCropClick}>Done</button>
             <a
               href="#hidden"
               ref={hiddenAnchorRef}
@@ -272,7 +285,8 @@ export default function CropPhoto({ closeModal = () => { }, handleCroppedImage =
               Hidden download
             </a>
           </div>
-        </div>
+        </section>
+
       )}
     </div>
   )
