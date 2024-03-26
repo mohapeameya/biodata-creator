@@ -12,27 +12,29 @@ import { defaultHeightIndex, defaultWeightIndex } from "./constants";
 
 export default function App() {
 
-  const [biodata, setBiodata] = useState(testState || {
-    name: { checked: true, value: '' },
-    dob: { checked: true, value: '' },
-    tob: { checked: true, value: '' },
-    pob: { checked: true, value: '' },
-    rashi: { checked: true, value: 0 },
-    complexion: { checked: true, value: 0 },
-    height: { checked: true, value: defaultHeightIndex },
-    weight: { checked: true, value: defaultWeightIndex },
-    education: { checked: true, value: '' },
-    job: { checked: true, value: '' },
-    religionCaste: { checked: true, value: '' },
-    father: { checked: true, value: '' },
-    fatherJob: { checked: true, value: '' },
-    mother: { checked: true, value: '' },
-    motherJob: { checked: true, value: '' },
-    contact: { checked: true, value: '' },
-    address: { checked: true, value: '' },
-    image: { checked: false, value: '' },
-    filename: { checked: true, value: '' }
-  });
+  const [biodata, setBiodata] = useState(
+    // testState ||
+    {
+      name: { checked: true, value: '' },
+      dob: { checked: true, value: '2000-01-01' },
+      tob: { checked: true, value: '07:45' },
+      pob: { checked: true, value: '' },
+      rashi: { checked: true, value: 0 },
+      complexion: { checked: true, value: 0 },
+      height: { checked: true, value: defaultHeightIndex },
+      weight: { checked: true, value: defaultWeightIndex },
+      education: { checked: true, value: '' },
+      job: { checked: true, value: '' },
+      religionCaste: { checked: true, value: '' },
+      father: { checked: true, value: '' },
+      fatherJob: { checked: true, value: '' },
+      mother: { checked: true, value: '' },
+      motherJob: { checked: true, value: '' },
+      contact: { checked: true, value: '' },
+      address: { checked: true, value: '' },
+      image: { checked: false, value: '' },
+      filename: { checked: true, value: '' }
+    });
 
   const [morePersonalFields, setMorePersonalFields] = useState([]);
   const [moreFamilyFields, setMoreFamilyFields] = useState([]);
