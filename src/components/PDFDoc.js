@@ -4,8 +4,14 @@ import { rashiValues, complexionValues, heightValues, weightValues } from "../co
 import { useEffect } from 'react';
 
 export default function PDFDoc({ name, dob, tob, pob, rashi, complexion,
-  height, weight, education, job, religionCaste, father, fatherJob,
-  mother, motherJob, contact, address, image }) {
+  height, weight, education, job, religionCaste,
+  morePersonalFields,
+  father, fatherJob,
+  mother, motherJob,
+  moreFamilyFields,
+  contact, address,
+  moreContactFields,
+  image }) {
   const personalDetailsFlex = image.checked ?
     { label: { flex: '2' }, value: { flex: '3' } } :
     { label: { flex: '1' }, value: { flex: '1' } };
@@ -110,6 +116,12 @@ export default function PDFDoc({ name, dob, tob, pob, rashi, complexion,
                     <Text style={personalDetailsFlex.label}>Religion/Caste:</Text>
                     <Text style={personalDetailsFlex.value}>{religionCaste.value}</Text>
                   </View>}
+                {morePersonalFields.map((item, index) => (
+                  <View key={index} style={{ flexDirection: 'row' }}>
+                    <Text style={personalDetailsFlex.label}>{item.name}:</Text>
+                    <Text style={personalDetailsFlex.value}>{item.value}</Text>
+                  </View>
+                ))}
               </View>
               {image.checked &&
                 <View style={{ flex: '1' }}>
@@ -138,10 +150,16 @@ export default function PDFDoc({ name, dob, tob, pob, rashi, complexion,
                 <Text style={familyContactFlex.label}>Occupation:</Text>
                 <Text style={familyContactFlex.value}>{motherJob.value}</Text>
               </View>}
+            {moreFamilyFields.map((item, index) => (
+              <View key={index} style={{ flexDirection: 'row' }}>
+                <Text style={familyContactFlex.label}>{item.name}:</Text>
+                <Text style={familyContactFlex.value}>{item.value}</Text>
+              </View>
+            ))}
             <Text style={{ paddingTop: 30, fontSize: 20, textDecoration: 'underline' }}>Contact Details</Text>
             {contact.checked &&
               <View style={{ flexDirection: 'row' }}>
-                <Text style={familyContactFlex.label}>Contact:</Text>
+                <Text style={familyContactFlex.label}>Mobile:</Text>
                 <Text style={familyContactFlex.value}>{contact.value}</Text>
               </View>}
             {address.checked &&
@@ -149,6 +167,12 @@ export default function PDFDoc({ name, dob, tob, pob, rashi, complexion,
                 <Text style={familyContactFlex.label}>Address:</Text>
                 <Text style={familyContactFlex.value}>{address.value}</Text>
               </View>}
+            {moreContactFields.map((item, index) => (
+              <View key={index} style={{ flexDirection: 'row' }}>
+                <Text style={familyContactFlex.label}>{item.name}:</Text>
+                <Text style={familyContactFlex.value}>{item.value}</Text>
+              </View>
+            ))}
           </View>
         </View>
       </Page>

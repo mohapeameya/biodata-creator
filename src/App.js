@@ -118,13 +118,21 @@ export default function App() {
       {preview ?
         <section className="fluid-container text-center">
           <PDFViewer width="380" height="540" showToolbar={false}>
-            <PDFDoc {...biodata} />
+            <PDFDoc {...biodata}
+              morePersonalFields={morePersonalFields}
+              moreFamilyFields={moreFamilyFields}
+              moreContactFields={moreContactFields}
+            />
           </PDFViewer>
           <div className="container p-3 mb-3">
             <div className="row">
               <div className="col">
                 <button className="btn btn-secondary mx-3" onClick={handlePreview}><i className="bi bi-pencil pe-1"></i>Edit biodata</button>
-                <BlobProvider document={<PDFDoc {...biodata} />}>
+                <BlobProvider document={<PDFDoc {...biodata}
+                  morePersonalFields={morePersonalFields}
+                  moreFamilyFields={moreFamilyFields}
+                  moreContactFields={moreContactFields}
+                />}>
                   {({ blob, url, loading, error }) =>
                   (loading ? <button className="btn btn-primary mx-3" disabled><i className="bi bi-download pe-1"></i>Download</button> :
                     <button className="btn btn-primary mx-3" onClick={() => handleDownload(blob)}><i className="bi bi-download pe-1"></i>Download</button>)
@@ -263,7 +271,7 @@ export default function App() {
                       <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Complexion</label>
                     </div>
                     <div className="col text-start">
-                      <select name="rashi" id="complexion" className="form-select"
+                      <select name="complexion" id="complexion" className="form-select"
                         value={biodata.complexion.value}
                         onChange={e => setBiodata({ ...biodata, complexion: { checked: biodata.complexion.checked, value: Number(e.target.value) } })}>
                         {
@@ -289,7 +297,7 @@ export default function App() {
                       <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Height</label>
                     </div>
                     <div className="col text-start">
-                      <select name="rashi" id="height" className="form-select" defaultValue={defaultHeightIndex}
+                      <select name="height" id="height" className="form-select"
                         value={biodata.height.value}
                         onChange={e => setBiodata({ ...biodata, height: { checked: biodata.height.checked, value: Number(e.target.value) } })}>
                         {
@@ -315,8 +323,8 @@ export default function App() {
                       <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Weight</label>
                     </div>
                     <div className="col text-start">
-                      <select name="rashi" id="weight" className="form-select" defaultValue={defaultWeightIndex}
-                        checked={biodata.weight.value}
+                      <select name="weight" id="weight" className="form-select" 
+                        value={biodata.weight.value}
                         onChange={e => setBiodata({ ...biodata, weight: { checked: biodata.weight.checked, value: Number(e.target.value) } })}>
                         {
                           weightValues.map((item, index) => <option key={item} value={index}>{item}</option>)
@@ -583,7 +591,7 @@ export default function App() {
                         onChange={e => setBiodata({ ...biodata, contact: { checked: e.target.checked, value: biodata.contact.value } })} />
                     </div>
                     <div className="col text-start">
-                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Contact</label>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Mobile</label>
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter contact number"
