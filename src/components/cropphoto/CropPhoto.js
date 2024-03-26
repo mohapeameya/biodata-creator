@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 import ReactCrop, {
   centerCrop,
@@ -162,6 +162,10 @@ export default function CropPhoto({ closeModal = () => { }, handleCroppedImage =
       }
     }
   }
+
+  useEffect(() => {
+    console.log('Crop component loaded')
+  }, [])
 
   return (
     <div className='fluid-container text-center'>

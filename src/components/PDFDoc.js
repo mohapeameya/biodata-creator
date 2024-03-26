@@ -1,6 +1,7 @@
 import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
 
-import { rashiValues, complexionValues, heightValues, weightValues } from "../data";
+import { rashiValues, complexionValues, heightValues, weightValues } from "../constants";
+import { useEffect } from 'react';
 
 export default function PDFDoc({ name, dob, tob, pob, rashi, complexion,
   height, weight, education, job, religionCaste, father, fatherJob,
@@ -11,6 +12,10 @@ export default function PDFDoc({ name, dob, tob, pob, rashi, complexion,
   const familyContactFlex = image.checked ?
     { label: { flex: '4' }, value: { flex: '11' } } :
     { label: { flex: '1' }, value: { flex: '1' } };
+
+  useEffect(() => {
+    console.log('Doc component loaded')
+  }, [])
 
   return (
     <Document>

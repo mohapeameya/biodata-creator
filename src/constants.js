@@ -44,22 +44,27 @@ export const weightValues = [
     '118 Kg', '119 Kg', '120 Kg'
 ]
 
-export const initialTestState = {
-    name: 'Krishna Mohan Sawant',
-    dob: '1994-10-14',
-    tob: '08:45',
-    pob: 'Mumbai',
-    rashi: 2,
-    complexion: 1,
-    height: 29,
-    education: 'B.E. CSE',
-    job: 'Software Developer',
-    religionCaste: 'Hindu',
-    father: 'Mohan Sawant',
-    fatherJob: 'BMC Officer',
-    mother: 'Rohini Sawant',
-    motherJob: 'Housewife',
-    contact: '9876543210',
-    address: 'A12, Swargarohini Apartment, Lok Chowk, Vrindavan Road, Buldana, 411011',
-    image: ''
-};
+export const defaultHeightIndex = 25;
+export const defaultWeightIndex = 20;
+
+export const testState = {
+    name: { checked: true, value: 'Krishna Mohan Sawant' },
+    dob: { checked: true, value: '1994-10-14' },
+    tob: { checked: true, value: '08:45' },
+    pob: { checked: true, value: 'Mumbai' },
+    rashi: { checked: true, value: 2 },
+    complexion: { checked: true, value: 1 },
+    height: { checked: true, value: defaultHeightIndex },
+    weight: { checked: true, value: defaultWeightIndex },
+    education: { checked: true, value: 'CBE CSE' },
+    job: { checked: true, value: 'Software Developer' },
+    religionCaste: { checked: true, value: 'Hindu Kunbi' },
+    father: { checked: true, value: 'Mohan Sawant' },
+    fatherJob: { checked: true, value: 'BMC Officer' },
+    mother: { checked: true, value: 'Rohini Sawant' },
+    motherJob: { checked: true, value: 'Housewife' },
+    contact: { checked: true, value: '9876543210' },
+    address: { checked: true, value: 'A12, Swargarohini Apartment, Lok Chowk, Vrindavan Road, Buldana, 411011' },
+    image: { checked: false, value: '' },
+    filename: { checked: true, value: 'test.png' }
+}

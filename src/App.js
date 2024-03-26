@@ -4,15 +4,15 @@ import CropPhoto from './components/cropphoto/CropPhoto'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { PDFViewer, BlobProvider } from '@react-pdf/renderer';
 import PDFDoc from "./components/PDFDoc";
+import { testState } from "./constants";
 
-import { rashiValues, complexionValues, heightValues, weightValues } from "./data";
+import { rashiValues, complexionValues, heightValues, weightValues } from "./constants";
 
-const defaultHeightIndex = 25;
-const defaultWeightIndex = 20;
+import { defaultHeightIndex, defaultWeightIndex } from "./constants";
 
 export default function App() {
 
-  const [biodata, setBiodata] = useState({
+  const [biodata, setBiodata] = useState(testState || {
     name: { checked: true, value: '' },
     dob: { checked: true, value: '' },
     tob: { checked: true, value: '' },
@@ -116,7 +116,7 @@ export default function App() {
       {preview ?
         <section className="fluid-container text-center">
           <PDFViewer width="380" height="540" showToolbar={false}>
-            <PDFDoc {...biodata}/>
+            <PDFDoc {...biodata} />
           </PDFViewer>
           <div className="container p-3 mb-3">
             <div className="row">
@@ -142,13 +142,16 @@ export default function App() {
                 <div className="col-lg-8">
                   <div className="row align-items-center p-1">
                     <div className="col-auto form-switch">
-                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked disabled />
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.name.checked} disabled />
                     </div>
                     <div className="col text-start">
                       <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Full Name</label>
                     </div>
                     <div className="col text-start">
-                      <input className="form-control" placeholder="Enter full name" onChange={e => setBiodata({ ...biodata, name: { checked: biodata.name.checked, value: e.target.value } })} />
+                      <input className="form-control" placeholder="Enter full name"
+                        value={biodata.name.value}
+                        onChange={e => setBiodata({ ...biodata, name: { checked: biodata.name.checked, value: e.target.value } })} />
                     </div>
                   </div>
                 </div>
@@ -160,13 +163,16 @@ export default function App() {
                 <div className="col-lg-8">
                   <div className="row align-items-center p-1">
                     <div className="col-auto form-switch">
-                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked disabled />
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.dob.checked} disabled />
                     </div>
                     <div className="col text-start">
                       <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Date of Birth</label>
                     </div>
                     <div className="col text-start">
-                      <input className="form-control" aria-label="Date" type="date" onChange={e => setBiodata({ ...biodata, dob: { checked: biodata.dob.checked, value: e.target.value } })} />
+                      <input className="form-control" aria-label="Date" type="date"
+                        value={biodata.dob.value}
+                        onChange={e => setBiodata({ ...biodata, dob: { checked: biodata.dob.checked, value: e.target.value } })} />
                     </div>
                   </div>
                 </div>
@@ -178,13 +184,16 @@ export default function App() {
                 <div className="col-lg-8">
                   <div className="row align-items-center p-1">
                     <div className="col-auto form-switch">
-                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked disabled />
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.tob.checked} disabled />
                     </div>
                     <div className="col text-start">
                       <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Time of Birth</label>
                     </div>
                     <div className="col text-start">
-                      <input className="form-control" aria-label="Time" type="time" onChange={e => setBiodata({ ...biodata, tob: { checked: biodata.tob.checked, value: e.target.value } })} />
+                      <input className="form-control" aria-label="Time" type="time"
+                        value={biodata.tob.value}
+                        onChange={e => setBiodata({ ...biodata, tob: { checked: biodata.tob.checked, value: e.target.value } })} />
                     </div>
                   </div>
                 </div>
@@ -205,6 +214,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter place of birth"
+                        value={biodata.pob.value}
                         onChange={e => setBiodata({ ...biodata, pob: { checked: biodata.pob.checked, value: e.target.value } })} />
                     </div>
                   </div>
@@ -226,6 +236,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <select name="rashi" id="rashi" className="form-select"
+                        value={biodata.rashi.value}
                         onChange={e => setBiodata({ ...biodata, rashi: { checked: biodata.rashi.checked, value: Number(e.target.value) } })}>
                         {
                           rashiValues.map((item, index) => <option key={item} value={index}>{item}</option>)
@@ -251,6 +262,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <select name="rashi" id="complexion" className="form-select"
+                        value={biodata.complexion.value}
                         onChange={e => setBiodata({ ...biodata, complexion: { checked: biodata.complexion.checked, value: Number(e.target.value) } })}>
                         {
                           complexionValues.map((item, index) => <option key={item} value={index}>{item}</option>)
@@ -276,6 +288,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <select name="rashi" id="height" className="form-select" defaultValue={defaultHeightIndex}
+                        value={biodata.height.value}
                         onChange={e => setBiodata({ ...biodata, height: { checked: biodata.height.checked, value: Number(e.target.value) } })}>
                         {
                           heightValues.map((item, index) => <option key={item} value={index}>{item}</option>)
@@ -301,6 +314,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <select name="rashi" id="weight" className="form-select" defaultValue={defaultWeightIndex}
+                        checked={biodata.weight.value}
                         onChange={e => setBiodata({ ...biodata, weight: { checked: biodata.weight.checked, value: Number(e.target.value) } })}>
                         {
                           weightValues.map((item, index) => <option key={item} value={index}>{item}</option>)
@@ -326,6 +340,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter highest education"
+                        value={biodata.education.value}
                         onChange={e => setBiodata({ ...biodata, education: { checked: biodata.education.checked, value: e.target.value } })} />
                     </div>
                   </div>
@@ -347,6 +362,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter job details"
+                        value={biodata.job.value}
                         onChange={e => setBiodata({ ...biodata, job: { checked: biodata.job.checked, value: e.target.value } })} />
                     </div>
                   </div>
@@ -368,6 +384,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter religion and caste"
+                        value={biodata.religionCaste.value}
                         onChange={e => setBiodata({ ...biodata, religionCaste: { checked: biodata.religionCaste.checked, value: e.target.value } })} />
                     </div>
                   </div>
@@ -434,6 +451,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter father's full name"
+                        value={biodata.father.value}
                         onChange={e => setBiodata({ ...biodata, father: { checked: biodata.father.checked, value: e.target.value } })} />
                     </div>
                   </div>
@@ -455,6 +473,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter father's occupation"
+                        value={biodata.fatherJob.value}
                         onChange={e => setBiodata({ ...biodata, fatherJob: { checked: biodata.fatherJob.checked, value: e.target.value } })} />
                     </div>
                   </div>
@@ -476,6 +495,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter mother's full name"
+                        value={biodata.mother.value}
                         onChange={e => setBiodata({ ...biodata, mother: { checked: biodata.mother.checked, value: e.target.value } })} />
                     </div>
                   </div>
@@ -497,6 +517,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter mother's occupation"
+                        value={biodata.motherJob.value}
                         onChange={e => setBiodata({ ...biodata, motherJob: { checked: biodata.motherJob.checked, value: e.target.value } })} />
                     </div>
                   </div>
@@ -564,6 +585,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter contact number"
+                        value={biodata.contact.value}
                         onChange={e => setBiodata({ ...biodata, contact: { checked: biodata.contact.checked, value: e.target.value } })} />
                     </div>
                   </div>
@@ -585,6 +607,7 @@ export default function App() {
                     </div>
                     <div className="col text-start">
                       <textarea className="form-control" rows="3" placeholder="Enter current address"
+                        value={biodata.address.value}
                         onChange={e => setBiodata({ ...biodata, address: { checked: biodata.address.checked, value: e.target.value } })} />
                     </div>
                   </div>
