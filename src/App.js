@@ -79,6 +79,14 @@ export default function App() {
     })
   }
 
+  const removeImage = () => {
+    setBiodata({
+      ...biodata,
+      image: { checked: false, value: '' },
+      filename: { checked: true, value: '' }
+    })
+  }
+
   const getCopyright = () => {
     const date = new Date();
     const currentYear = date.getFullYear();
@@ -747,7 +755,12 @@ export default function App() {
                 <div className="col-lg-8">
                   <div className="row align-items-center p-1">
                     <div className="col">
-                      {biodata.filename.value && (<div className="text-white"><span>{biodata.filename.value}</span></div>)}
+                      {biodata.filename.value && (<div className="text-white">
+                        <span>
+                          {biodata.filename.value}
+                          <button type="button" className="btn" onClick={removeImage}><i className="bi bi-trash3-fill text-danger"></i></button>
+                        </span>
+                      </div>)}
                     </div>
                     <div className="col">
                     </div>
