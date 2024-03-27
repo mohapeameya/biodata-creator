@@ -4,10 +4,12 @@ import CropPhoto from './components/cropphoto/CropPhoto'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { PDFViewer, BlobProvider } from '@react-pdf/renderer';
 import PDFDoc from "./components/PDFDoc";
+
+import bappa from './ganpati1.png';
+import './App.css';
+
 import { testState } from "./constants";
-
 import { rashiValues, complexionValues, heightValues, weightValues } from "./constants";
-
 import { defaultHeightIndex, defaultWeightIndex } from "./constants";
 
 export default function App() {
@@ -15,6 +17,8 @@ export default function App() {
   const [biodata, setBiodata] = useState(
     // testState ||
     {
+      headerIcon: { checked: true },
+      headerText: { checked: true, value: '|| Shree Ganesh ||' },
       name: { checked: true, value: '' },
       dob: { checked: true, value: '2000-01-01' },
       tob: { checked: true, value: '07:45' },
@@ -144,6 +148,54 @@ export default function App() {
         </section> :
 
         <>
+          <section className="fluid-container text-center">
+            <div className="container shadow p-3 mb-3 bg-white rounded">
+              <h3>
+                <i className="bi bi-card-heading pe-1"></i>
+                Header Details</h3>
+              <div className="row">
+                <div className="col"></div>
+                <div className="col-lg-8">
+                  <div className="row align-items-center p-1">
+                    <div className="col-auto form-switch">
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.headerIcon.checked}
+                        onChange={e => setBiodata({ ...biodata, headerIcon: { checked: e.target.checked, value: biodata.headerIcon.value } })} />
+                    </div>
+                    <div className="col text-start">
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Icon</label>
+                    </div>
+                    <div className="col text-center">
+                      <img src={bappa} className="bappa-icon" alt="logo" />
+                    </div>
+                  </div>
+                </div>
+                <div className="col"></div>
+              </div>
+              <div className="row">
+                <div className="col"></div>
+                <div className="col-lg-8">
+                  <div className="row align-items-center p-1">
+                    <div className="col-auto form-switch">
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.headerText.checked}
+                        onChange={e => setBiodata({ ...biodata, headerText: { checked: e.target.checked, value: biodata.headerText.value } })} />
+                    </div>
+                    <div className="col text-start">
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Text</label>
+                    </div>
+                    <div className="col text-start">
+                      <input className="form-control" placeholder="Document header"
+                        value={biodata.headerText.value}
+                        onChange={e => setBiodata({ ...biodata, headerText: { checked: biodata.headerText.checked, value: e.target.value } })} />
+                    </div>
+                  </div>
+                </div>
+                <div className="col"></div>
+              </div>
+            </div>
+          </section>
+
           <section className="fluid-container text-center">
             <div className="container shadow p-3 mb-3 bg-white rounded">
               <h3><i className="bi bi-person"></i>Personal Details</h3>
@@ -323,7 +375,7 @@ export default function App() {
                       <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Weight</label>
                     </div>
                     <div className="col text-start">
-                      <select name="weight" id="weight" className="form-select" 
+                      <select name="weight" id="weight" className="form-select"
                         value={biodata.weight.value}
                         onChange={e => setBiodata({ ...biodata, weight: { checked: biodata.weight.checked, value: Number(e.target.value) } })}>
                         {

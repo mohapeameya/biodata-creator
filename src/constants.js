@@ -48,6 +48,8 @@ export const defaultHeightIndex = 25;
 export const defaultWeightIndex = 20;
 
 export const testState = {
+    headerIcon: { checked: true },
+    headerText: { checked: true, value: '|| Shree Ganesh ||' },
     name: { checked: true, value: 'Krishna Mohan Sawant' },
     dob: { checked: true, value: '1994-10-14' },
     tob: { checked: true, value: '08:45' },

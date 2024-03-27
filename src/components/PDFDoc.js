@@ -3,7 +3,9 @@ import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/render
 import { rashiValues, complexionValues, heightValues, weightValues } from "../constants";
 import { useEffect } from 'react';
 
-export default function PDFDoc({ name, dob, tob, pob, rashi, complexion,
+import bappa from '../ganpati1.png';
+
+export default function PDFDoc({ headerIcon, headerText, name, dob, tob, pob, rashi, complexion,
   height, weight, education, job, religionCaste,
   morePersonalFields,
   father, fatherJob,
@@ -53,10 +55,14 @@ export default function PDFDoc({ name, dob, tob, pob, rashi, complexion,
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.border}>
-          <View style={{ paddingTop: 10, alignSelf: 'center' }}>
-            <Text style={{ fontSize: 26 }}>BIO DATA</Text>
-          </View>
-          <View style={{ paddingTop: 30, paddingLeft: 20, paddingRight: 20 }}>
+          {headerIcon.checked &&
+            <Image src={bappa} style={{ height: '7vh', alignSelf: 'center', paddingTop: 5 }}></Image>
+          }
+          {headerText.checked &&
+            <View style={{ paddingTop: 10,  alignSelf: 'center' }}>
+              <Text style={{ fontSize: 20 }}>{headerText.value}</Text>
+            </View>}
+          <View style={{ paddingLeft: 20, marginTop: 10, paddingRight: 20 }}>
             <Text style={{ fontSize: 20, textDecoration: 'underline' }}>Personal Details</Text>
             <View style={{ flexDirection: 'row' }}>
               <View style={image.checked ? { flex: '2' } : { flex: '1' }}>
