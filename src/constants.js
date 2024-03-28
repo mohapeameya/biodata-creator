@@ -25,7 +25,7 @@ export const heightValues = [
     '7 feet 0 inches', '7 feet 1 inches', '7 feet 2 inches',
     '7 feet 3 inches', '7 feet 4 inches', '7 feet 5 inches',
     '7 feet 6 inches'
-]
+];
 
 export const weightValues = [
     '40 Kg', '41 Kg', '42 Kg', '43 Kg', '44 Kg', '45 Kg',
@@ -42,10 +42,17 @@ export const weightValues = [
     '106 Kg', '107 Kg', '108 Kg', '109 Kg', '110 Kg', '111 Kg',
     '112 Kg', '113 Kg', '114 Kg', '115 Kg', '116 Kg', '117 Kg',
     '118 Kg', '119 Kg', '120 Kg'
-]
+];
 
+export const bloodGroupValues = [
+    'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'
+];
+
+export const defaultRashiIndex = 0;
+export const defaultComplexionIndex = 0;
 export const defaultHeightIndex = 25;
 export const defaultWeightIndex = 20;
+export const defaultBloodGroupIndex = 2;
 
 export const testState = {
     headerIcon: { checked: true },
@@ -54,13 +61,15 @@ export const testState = {
     dob: { checked: true, value: '1994-10-14' },
     tob: { checked: true, value: '08:45' },
     pob: { checked: true, value: 'Mumbai' },
+    religionCaste: { checked: true, value: 'Hindu Kunbi' },
     rashi: { checked: true, value: 2 },
-    complexion: { checked: true, value: 1 },
+    nakshatra: { checked: true, value: 'Dhanishtha' },
+    complexion: { checked: true, value: defaultComplexionIndex },
     height: { checked: true, value: defaultHeightIndex },
     weight: { checked: true, value: defaultWeightIndex },
-    education: { checked: true, value: 'CBE CSE' },
+    bloodGroup: { checked: true, value: 2 },
+    education: { checked: true, value: 'BE in CSE' },
     job: { checked: true, value: 'Software Developer' },
-    religionCaste: { checked: true, value: 'Hindu Kunbi' },
     father: { checked: true, value: 'Mohan Sawant' },
     fatherJob: { checked: true, value: 'BMC Officer' },
     mother: { checked: true, value: 'Rohini Sawant' },
@@ -69,4 +78,4 @@ export const testState = {
     address: { checked: true, value: 'A12, Swargarohini Apartment, Lok Chowk, Vrindavan Road, Buldana, 411011' },
     image: { checked: false, value: '' },
     filename: { checked: true, value: 'test.png' }
-}
+};

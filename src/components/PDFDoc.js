@@ -1,12 +1,13 @@
 import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
 
-import { rashiValues, complexionValues, heightValues, weightValues } from "../constants";
+import { rashiValues, complexionValues, heightValues, weightValues, bloodGroupValues } from "../constants";
 import { useEffect } from 'react';
 
 import bappa from '../ganpati1.png';
 
-export default function PDFDoc({ headerIcon, headerText, name, dob, tob, pob, rashi, complexion,
-  height, weight, education, job, religionCaste,
+export default function PDFDoc({ headerIcon, headerText, name,
+  dob, tob, pob, rashi, nakshatra, complexion,
+  bloodGroup, height, weight, education, job, religionCaste,
   morePersonalFields,
   father, fatherJob,
   mother, motherJob,
@@ -86,10 +87,20 @@ export default function PDFDoc({ headerIcon, headerText, name, dob, tob, pob, ra
                     <Text style={personalDetailsFlex.label}>Place of birth</Text>
                     <Text style={personalDetailsFlex.value}>: {pob.value}</Text>
                   </View>}
+                {religionCaste.checked &&
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Caste</Text>
+                    <Text style={personalDetailsFlex.value}>: {religionCaste.value}</Text>
+                  </View>}
                 {rashi.checked &&
                   <View style={styles.detailRow}>
                     <Text style={personalDetailsFlex.label}>Rashi</Text>
                     <Text style={personalDetailsFlex.value}>: {rashiValues[rashi.value]}</Text>
+                  </View>}
+                {nakshatra.checked &&
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Nakshatra</Text>
+                    <Text style={personalDetailsFlex.value}>: {nakshatra.value}</Text>
                   </View>}
                 {complexion.checked &&
                   <View style={styles.detailRow}>
@@ -106,6 +117,11 @@ export default function PDFDoc({ headerIcon, headerText, name, dob, tob, pob, ra
                     <Text style={personalDetailsFlex.label}>Weight</Text>
                     <Text style={personalDetailsFlex.value}>: {weightValues[weight.value]}</Text>
                   </View>}
+                {bloodGroup.checked &&
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Blood Group</Text>
+                    <Text style={personalDetailsFlex.value}>: {bloodGroupValues[bloodGroup.value]}</Text>
+                  </View>}
                 {education.checked &&
                   <View style={styles.detailRow}>
                     <Text style={personalDetailsFlex.label}>Education</Text>
@@ -113,13 +129,8 @@ export default function PDFDoc({ headerIcon, headerText, name, dob, tob, pob, ra
                   </View>}
                 {job.checked &&
                   <View style={styles.detailRow}>
-                    <Text style={personalDetailsFlex.label}>Job/occupation</Text>
+                    <Text style={personalDetailsFlex.label}>Occupation</Text>
                     <Text style={personalDetailsFlex.value}>: {job.value}</Text>
-                  </View>}
-                {religionCaste.checked &&
-                  <View style={styles.detailRow}>
-                    <Text style={personalDetailsFlex.label}>Religion/Caste</Text>
-                    <Text style={personalDetailsFlex.value}>: {religionCaste.value}</Text>
                   </View>}
                 {morePersonalFields.map((item, index) => (
                   <View key={index} style={styles.detailRow}>

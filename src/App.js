@@ -9,8 +9,8 @@ import bappa from './ganpati1.png';
 import './App.css';
 
 import { testState } from "./constants";
-import { rashiValues, complexionValues, heightValues, weightValues } from "./constants";
-import { defaultHeightIndex, defaultWeightIndex } from "./constants";
+import { rashiValues, complexionValues, heightValues, weightValues, bloodGroupValues } from "./constants";
+import { defaultRashiIndex, defaultComplexionIndex, defaultHeightIndex, defaultWeightIndex, defaultBloodGroupIndex } from "./constants";
 
 export default function App() {
 
@@ -23,13 +23,15 @@ export default function App() {
       dob: { checked: true, value: '2000-01-01' },
       tob: { checked: true, value: '07:45' },
       pob: { checked: true, value: '' },
-      rashi: { checked: true, value: 0 },
-      complexion: { checked: true, value: 0 },
+      religionCaste: { checked: true, value: '' },
+      rashi: { checked: true, value: defaultRashiIndex },
+      nakshatra: { checked: true, value: '' },
+      complexion: { checked: true, value: defaultComplexionIndex },
       height: { checked: true, value: defaultHeightIndex },
       weight: { checked: true, value: defaultWeightIndex },
+      bloodGroup: { checked: true, value: defaultBloodGroupIndex },
       education: { checked: true, value: '' },
       job: { checked: true, value: '' },
-      religionCaste: { checked: true, value: '' },
       father: { checked: true, value: '' },
       fatherJob: { checked: true, value: '' },
       mother: { checked: true, value: '' },
@@ -298,6 +300,28 @@ export default function App() {
                   <div className="row align-items-center p-1">
                     <div className="col-auto form-switch">
                       <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.religionCaste.checked}
+                        onChange={e => setBiodata({ ...biodata, religionCaste: { checked: e.target.checked, value: biodata.religionCaste.value } })} />
+                    </div>
+                    <div className="col text-start">
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Caste</label>
+                    </div>
+                    <div className="col text-start">
+                      <input className="form-control" placeholder="Enter caste"
+                        value={biodata.religionCaste.value}
+                        onChange={e => setBiodata({ ...biodata, religionCaste: { checked: biodata.religionCaste.checked, value: e.target.value } })} />
+                    </div>
+                  </div>
+                </div>
+                <div className="col"></div>
+              </div>
+
+              <div className="row">
+                <div className="col"></div>
+                <div className="col-lg-8">
+                  <div className="row align-items-center p-1">
+                    <div className="col-auto form-switch">
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
                         checked={biodata.rashi.checked}
                         onChange={e => setBiodata({ ...biodata, rashi: { checked: e.target.checked, value: biodata.rashi.value } })} />
                     </div>
@@ -312,6 +336,28 @@ export default function App() {
                           rashiValues.map((item, index) => <option key={item} value={index}>{item}</option>)
                         }
                       </select>
+                    </div>
+                  </div>
+                </div>
+                <div className="col"></div>
+              </div>
+
+              <div className="row">
+                <div className="col"></div>
+                <div className="col-lg-8">
+                  <div className="row align-items-center p-1">
+                    <div className="col-auto form-switch">
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.nakshatra.checked}
+                        onChange={e => setBiodata({ ...biodata, nakshatra: { checked: e.target.checked, value: biodata.nakshatra.value } })} />
+                    </div>
+                    <div className="col text-start">
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Nakshatra</label>
+                    </div>
+                    <div className="col text-start">
+                      <input className="form-control" placeholder="Enter nakshatra"
+                        value={biodata.nakshatra.value}
+                        onChange={e => setBiodata({ ...biodata, nakshatra: { checked: biodata.nakshatra.checked, value: e.target.value } })} />
                     </div>
                   </div>
                 </div>
@@ -402,6 +448,32 @@ export default function App() {
                   <div className="row align-items-center p-1">
                     <div className="col-auto form-switch">
                       <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.bloodGroup.checked}
+                        onChange={e => setBiodata({ ...biodata, bloodGroup: { checked: e.target.checked, value: biodata.bloodGroup.value } })} />
+                    </div>
+                    <div className="col text-start">
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Blood Group</label>
+                    </div>
+                    <div className="col text-start">
+                      <select name="bloodGroup" id="bloodGroup" className="form-select"
+                        value={biodata.bloodGroup.value}
+                        onChange={e => setBiodata({ ...biodata, bloodGroup: { checked: biodata.bloodGroup.checked, value: Number(e.target.value) } })}>
+                        {
+                          bloodGroupValues.map((item, index) => <option key={item} value={index}>{item}</option>)
+                        }
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div className="col"></div>
+              </div>
+
+              <div className="row">
+                <div className="col"></div>
+                <div className="col-lg-8">
+                  <div className="row align-items-center p-1">
+                    <div className="col-auto form-switch">
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
                         checked={biodata.education.checked}
                         onChange={e => setBiodata({ ...biodata, education: { checked: e.target.checked, value: biodata.education.value } })} />
                     </div>
@@ -428,34 +500,12 @@ export default function App() {
                         onChange={e => setBiodata({ ...biodata, job: { checked: e.target.checked, value: biodata.job.value } })} />
                     </div>
                     <div className="col text-start">
-                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Job/Occupation</label>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Occupation</label>
                     </div>
                     <div className="col text-start">
-                      <input className="form-control" placeholder="Enter job details"
+                      <input className="form-control" placeholder="Enter occupation details"
                         value={biodata.job.value}
                         onChange={e => setBiodata({ ...biodata, job: { checked: biodata.job.checked, value: e.target.value } })} />
-                    </div>
-                  </div>
-                </div>
-                <div className="col"></div>
-              </div>
-
-              <div className="row">
-                <div className="col"></div>
-                <div className="col-lg-8">
-                  <div className="row align-items-center p-1">
-                    <div className="col-auto form-switch">
-                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                        checked={biodata.religionCaste.checked}
-                        onChange={e => setBiodata({ ...biodata, religionCaste: { checked: e.target.checked, value: biodata.religionCaste.value } })} />
-                    </div>
-                    <div className="col text-start">
-                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Religion/Caste</label>
-                    </div>
-                    <div className="col text-start">
-                      <input className="form-control" placeholder="Enter religion and caste"
-                        value={biodata.religionCaste.value}
-                        onChange={e => setBiodata({ ...biodata, religionCaste: { checked: biodata.religionCaste.checked, value: e.target.value } })} />
                     </div>
                   </div>
                 </div>
