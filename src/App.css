@@ -1,3 +1,7 @@
 .bappa-icon {
     height: 15vmin;
 }
+
+.gray-out {
+    opacity: 0.5;
+}
