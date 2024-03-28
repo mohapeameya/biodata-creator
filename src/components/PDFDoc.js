@@ -16,10 +16,10 @@ export default function PDFDoc({ headerIcon, headerText, name,
   moreContactFields,
   image }) {
   const personalDetailsFlex = image.checked ?
-    { label: { flex: '2' }, value: { flex: '3' } } :
+    { label: { flex: '1' }, value: { flex: '1' } } :
     { label: { flex: '1' }, value: { flex: '1' } };
   const familyContactFlex = image.checked ?
-    { label: { flex: '4' }, value: { flex: '11' } } :
+    { label: { flex: '1' }, value: { flex: '2' } } :
     { label: { flex: '1' }, value: { flex: '1' } };
 
   useEffect(() => {
