@@ -15,10 +15,10 @@ export default function PDFDoc({ headerIcon, headerText, name, dob, tob, pob, ra
   moreContactFields,
   image }) {
   const personalDetailsFlex = image.checked ?
-    { label: { flex: '2' }, value: { flex: '3' } } :
+    { label: { flex: '1' }, value: { flex: '1' } } :
     { label: { flex: '1' }, value: { flex: '1' } };
   const familyContactFlex = image.checked ?
-    { label: { flex: '4' }, value: { flex: '11' } } :
+    { label: { flex: '1' }, value: { flex: '2' } } :
     { label: { flex: '1' }, value: { flex: '1' } };
 
   useEffect(() => {
@@ -56,76 +56,75 @@ export default function PDFDoc({ headerIcon, headerText, name, dob, tob, pob, ra
       <Page size="A4" style={styles.page}>
         <View style={styles.border}>
           {headerIcon.checked &&
-            <Image src={bappa} style={{ height: '7vh', alignSelf: 'center', paddingTop: 5 }}></Image>
+            <Image src={bappa} style={{ height: '6vh', alignSelf: 'center', paddingTop: 5 }}></Image>
           }
           {headerText.checked &&
-            <View style={{ paddingTop: 10,  alignSelf: 'center' }}>
-              <Text style={{ fontSize: 20 }}>{headerText.value}</Text>
+            <View style={{ paddingTop: 5, alignSelf: 'center' }}>
+              <Text style={{ fontSize: 16 }}>{headerText.value}</Text>
             </View>}
-          <View style={{ paddingLeft: 20, marginTop: 10, paddingRight: 20 }}>
-            <Text style={{ fontSize: 20, textDecoration: 'underline' }}>Personal Details</Text>
-            <View style={{ flexDirection: 'row' }}>
+          <View style={{ paddingLeft: 25, paddingRight: 25 }}>
+            <Text style={styles.headerRow}>PERSONAL DETAILS</Text>
+            <View style={{ flexDirection: 'row', fontSize: 12 }}>
               <View style={image.checked ? { flex: '2' } : { flex: '1' }}>
                 {name.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Name:</Text>
-                    <Text style={personalDetailsFlex.value}>{name.value}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Name</Text>
+                    <Text style={personalDetailsFlex.value}>: {name.value}</Text>
                   </View>}
                 {dob.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Date of birth:</Text>
-                    <Text style={personalDetailsFlex.value}>{convertDateFormat(dob.value)}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Date of birth</Text>
+                    <Text style={personalDetailsFlex.value}>: {convertDateFormat(dob.value)}</Text>
                   </View>}
                 {tob.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Time of birth:</Text>
-                    <Text style={personalDetailsFlex.value}>{convertTo12HourFormat(tob.value)}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Time of birth</Text>
+                    <Text style={personalDetailsFlex.value}>: {convertTo12HourFormat(tob.value)}</Text>
                   </View>}
-
                 {pob.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Place of birth:</Text>
-                    <Text style={personalDetailsFlex.value}>{pob.value}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Place of birth</Text>
+                    <Text style={personalDetailsFlex.value}>: {pob.value}</Text>
                   </View>}
                 {rashi.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Rashi:</Text>
-                    <Text style={personalDetailsFlex.value}>{rashiValues[rashi.value]}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Rashi</Text>
+                    <Text style={personalDetailsFlex.value}>: {rashiValues[rashi.value]}</Text>
                   </View>}
                 {complexion.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Complexion:</Text>
-                    <Text style={personalDetailsFlex.value}>{complexionValues[complexion.value]}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Complexion</Text>
+                    <Text style={personalDetailsFlex.value}>: {complexionValues[complexion.value]}</Text>
                   </View>}
                 {height.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Height:</Text>
-                    <Text style={personalDetailsFlex.value}>{heightValues[height.value]}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Height</Text>
+                    <Text style={personalDetailsFlex.value}>: {heightValues[height.value]}</Text>
                   </View>}
                 {weight.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Weight:</Text>
-                    <Text style={personalDetailsFlex.value}>{weightValues[weight.value]}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Weight</Text>
+                    <Text style={personalDetailsFlex.value}>: {weightValues[weight.value]}</Text>
                   </View>}
                 {education.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Education:</Text>
-                    <Text style={personalDetailsFlex.value}>{education.value}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Education</Text>
+                    <Text style={personalDetailsFlex.value}>: {education.value}</Text>
                   </View>}
                 {job.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Job/occupation:</Text>
-                    <Text style={personalDetailsFlex.value}>{job.value}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Job/occupation</Text>
+                    <Text style={personalDetailsFlex.value}>: {job.value}</Text>
                   </View>}
                 {religionCaste.checked &&
-                  <View style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>Religion/Caste:</Text>
-                    <Text style={personalDetailsFlex.value}>{religionCaste.value}</Text>
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Religion/Caste</Text>
+                    <Text style={personalDetailsFlex.value}>: {religionCaste.value}</Text>
                   </View>}
                 {morePersonalFields.map((item, index) => (
-                  <View key={index} style={{ flexDirection: 'row' }}>
-                    <Text style={personalDetailsFlex.label}>{item.name}:</Text>
-                    <Text style={personalDetailsFlex.value}>{item.value}</Text>
+                  <View key={index} style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>{item.name}</Text>
+                    <Text style={personalDetailsFlex.value}>: {item.value}</Text>
                   </View>
                 ))}
               </View>
@@ -135,50 +134,54 @@ export default function PDFDoc({ headerIcon, headerText, name, dob, tob, pob, ra
                 </View>
               }
             </View>
-            <Text style={{ paddingTop: 30, fontSize: 20, textDecoration: 'underline' }}>Family Details</Text>
-            {father.checked &&
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={familyContactFlex.label}>Father:</Text>
-                <Text style={familyContactFlex.value}>{father.value}</Text>
-              </View>}
-            {fatherJob.checked &&
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={familyContactFlex.label}>Occupation:</Text>
-                <Text style={familyContactFlex.value}>{fatherJob.value}</Text>
-              </View>}
-            {mother.checked &&
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={familyContactFlex.label}>Mother:</Text>
-                <Text style={familyContactFlex.value}>{mother.value}</Text>
-              </View>}
-            {motherJob.checked &&
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={familyContactFlex.label}>Occupation:</Text>
-                <Text style={familyContactFlex.value}>{motherJob.value}</Text>
-              </View>}
-            {moreFamilyFields.map((item, index) => (
-              <View key={index} style={{ flexDirection: 'row' }}>
-                <Text style={familyContactFlex.label}>{item.name}:</Text>
-                <Text style={familyContactFlex.value}>{item.value}</Text>
-              </View>
-            ))}
-            <Text style={{ paddingTop: 30, fontSize: 20, textDecoration: 'underline' }}>Contact Details</Text>
-            {contact.checked &&
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={familyContactFlex.label}>Mobile:</Text>
-                <Text style={familyContactFlex.value}>{contact.value}</Text>
-              </View>}
-            {address.checked &&
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={familyContactFlex.label}>Address:</Text>
-                <Text style={familyContactFlex.value}>{address.value}</Text>
-              </View>}
-            {moreContactFields.map((item, index) => (
-              <View key={index} style={{ flexDirection: 'row' }}>
-                <Text style={familyContactFlex.label}>{item.name}:</Text>
-                <Text style={familyContactFlex.value}>{item.value}</Text>
-              </View>
-            ))}
+            <Text style={styles.headerRow}>FAMILY DETAILS</Text>
+            <View style={{ fontSize: 12 }}>
+              {father.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Father</Text>
+                  <Text style={familyContactFlex.value}>: {father.value}</Text>
+                </View>}
+              {fatherJob.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Occupation</Text>
+                  <Text style={familyContactFlex.value}>: {fatherJob.value}</Text>
+                </View>}
+              {mother.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Mother</Text>
+                  <Text style={familyContactFlex.value}>: {mother.value}</Text>
+                </View>}
+              {motherJob.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Occupation</Text>
+                  <Text style={familyContactFlex.value}>: {motherJob.value}</Text>
+                </View>}
+              {moreFamilyFields.map((item, index) => (
+                <View key={index} style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>{item.name}</Text>
+                  <Text style={familyContactFlex.value}>: {item.value}</Text>
+                </View>
+              ))}
+            </View>
+            <Text style={styles.headerRow}>CONTACT DETAILS</Text>
+            <View style={{ fontSize: 12 }}>
+              {contact.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Mobile</Text>
+                  <Text style={familyContactFlex.value}>: {contact.value}</Text>
+                </View>}
+              {address.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Address</Text>
+                  <Text style={familyContactFlex.value}>: {address.value}</Text>
+                </View>}
+              {moreContactFields.map((item, index) => (
+                <View key={index} style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>{item.name}</Text>
+                  <Text style={familyContactFlex.value}>: {item.value}</Text>
+                </View>
+              ))}
+            </View>
           </View>
         </View>
       </Page>
@@ -190,7 +193,7 @@ const styles = StyleSheet.create({
   page: {
     flexDirection: 'row',
     backgroundColor: '#ffffff', // Optional: Set background color for the page
-    padding: 20, // Padding for the page content (white space)
+    padding: 25, // Padding for the page content (white space)
   },
   border: {
     flex: 1,
@@ -198,4 +201,13 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderRadius: 10
   },
+  headerRow: {
+    paddingTop: 20,
+    fontSize: 13,
+    paddingBottom: 7
+  },
+  detailRow: {
+    flexDirection: 'row',
+    paddingBottom: 5
+  }
 });
