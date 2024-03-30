@@ -12,6 +12,7 @@ import { testState } from "./constants";
 import { rashiValues, complexionValues, heightValues, weightValues, bloodGroupValues } from "./constants";
 import { defaultRashiIndex, defaultComplexionIndex, defaultHeightIndex, defaultWeightIndex, defaultBloodGroupIndex } from "./constants";
 import PreviewCarousel from "./components/PreviewCarousel";
+import PreviewBiodata from "./components/PreviewBiodata";
 
 export default function App() {
 
@@ -52,6 +53,9 @@ export default function App() {
   const [preview, setPreview] = useState(false);
 
   const [activeSlide, setActiveSlide] = useState(0);
+
+  const showPDFPreview = false;
+  const showHTMLPreview = true;
 
   const addField = (moreFields, setMoreFields) => {
     setMoreFields([...moreFields, { name: "", value: "" }]);
@@ -134,13 +138,30 @@ export default function App() {
 
       {preview ?
         <section className="fluid-container text-center">
-          <PDFViewer width="380" height="540" showToolbar={false}>
-            <PDFDoc {...biodata}
-              morePersonalFields={morePersonalFields}
-              moreFamilyFields={moreFamilyFields}
-              moreContactFields={moreContactFields}
-            />
-          </PDFViewer>
+          <div className="row justify-content-center mb-3">
+            {/* {showPDFPreview && (
+              <div className="col">
+                <PDFViewer width="380" height="540" showToolbar={false}>
+                  <PDFDoc
+                    {...biodata}
+                    morePersonalFields={morePersonalFields}
+                    moreFamilyFields={moreFamilyFields}
+                    moreContactFields={moreContactFields}
+                  />
+                </PDFViewer>
+              </div>
+            )} */}
+            {showHTMLPreview && (
+              <div className="col d-flex justify-content-center"> {/* Add d-flex and justify-content-center classes */}
+                <div style={{ width: 380, height: 540, backgroundColor: 'white' }}>
+                  <PreviewBiodata {...biodata} morePersonalFields={morePersonalFields}
+                    moreFamilyFields={moreFamilyFields}
+                    moreContactFields={moreContactFields}/>
+                </div>
+              </div>
+            )}
+          </div>
+          
           <PreviewCarousel activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
           <div className="container p-3 mb-3">
             <div className="row">
