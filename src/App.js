@@ -138,10 +138,9 @@ export default function App() {
 
       {preview ?
         <section className="fluid-container text-center">
-          {/* use below div while comparing pdf and html side by side */}
+          {/* uncomment below div while comparing pdf and html side by side */}
           {/* <div className="row justify-content-center mb-3"> */}
-          <div className="mb-3">
-            {/* {showPDFPreview && (
+          {/* {showPDFPreview && (
               <div className="col">
                 <PDFViewer width="380" height="540" showToolbar={false}>
                   <PDFDoc
@@ -153,12 +152,13 @@ export default function App() {
                 </PDFViewer>
               </div>
             )} */}
+          <div className="mb-3">{/** comment this line when comparing pdf/html */}
             {showHTMLPreview && (
               <div className="d-flex justify-content-center"> {/* Add d-flex and justify-content-center classes */}
                 <div style={{ width: 380, height: 540, backgroundColor: 'white' }}>
                   <PreviewBiodata {...biodata} morePersonalFields={morePersonalFields}
                     moreFamilyFields={moreFamilyFields}
-                    moreContactFields={moreContactFields} />
+                    moreContactFields={moreContactFields} index={activeSlide} />
                 </div>
               </div>
             )}
