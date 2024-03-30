@@ -11,6 +11,7 @@ import './App.css';
 import { testState } from "./constants";
 import { rashiValues, complexionValues, heightValues, weightValues, bloodGroupValues } from "./constants";
 import { defaultRashiIndex, defaultComplexionIndex, defaultHeightIndex, defaultWeightIndex, defaultBloodGroupIndex } from "./constants";
+import PreviewCarousel from "./components/PreviewCarousel";
 
 export default function App() {
 
@@ -46,6 +47,12 @@ export default function App() {
   const [moreFamilyFields, setMoreFamilyFields] = useState([]);
   const [moreContactFields, setMoreContactFields] = useState([]);
 
+  const [showModal, setShowModal] = useState(false);
+
+  const [preview, setPreview] = useState(false);
+
+  const [activeSlide, setActiveSlide] = useState(0);
+
   const addField = (moreFields, setMoreFields) => {
     setMoreFields([...moreFields, { name: "", value: "" }]);
   }
@@ -66,8 +73,6 @@ export default function App() {
     // Update the state with the new array
     setMoreFields(updatedMoreFields);
   }
-
-  const [showModal, setShowModal] = useState(false);
 
   const handleToggleModal = () => {
     setShowModal((prevState) => !prevState);
@@ -96,8 +101,6 @@ export default function App() {
     const cp = `© Copyright ${currentYear}, ${companyName}`;
     return cp;
   }
-
-  const [preview, setPreview] = useState(false);
 
   const handlePreview = () => {
     setPreview((prevState) => !prevState);
@@ -138,6 +141,7 @@ export default function App() {
               moreContactFields={moreContactFields}
             />
           </PDFViewer>
+          <PreviewCarousel activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
           <div className="container p-3 mb-3">
             <div className="row">
               <div className="col">
