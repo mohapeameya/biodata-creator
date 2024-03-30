@@ -17,7 +17,7 @@ import PreviewBiodata from "./components/PreviewBiodata";
 export default function App() {
 
   const [biodata, setBiodata] = useState(
-    // testState ||
+    testState ||
     {
       headerIcon: { checked: true },
       headerText: { checked: true, value: '|| Shree Ganesh ||' },
@@ -138,7 +138,9 @@ export default function App() {
 
       {preview ?
         <section className="fluid-container text-center">
-          <div className="row justify-content-center mb-3">
+          {/* use below div while comparing pdf and html side by side */}
+          {/* <div className="row justify-content-center mb-3"> */}
+          <div className="mb-3">
             {/* {showPDFPreview && (
               <div className="col">
                 <PDFViewer width="380" height="540" showToolbar={false}>
@@ -152,16 +154,16 @@ export default function App() {
               </div>
             )} */}
             {showHTMLPreview && (
-              <div className="col d-flex justify-content-center"> {/* Add d-flex and justify-content-center classes */}
+              <div className="d-flex justify-content-center"> {/* Add d-flex and justify-content-center classes */}
                 <div style={{ width: 380, height: 540, backgroundColor: 'white' }}>
                   <PreviewBiodata {...biodata} morePersonalFields={morePersonalFields}
                     moreFamilyFields={moreFamilyFields}
-                    moreContactFields={moreContactFields}/>
+                    moreContactFields={moreContactFields} />
                 </div>
               </div>
             )}
           </div>
-          
+
           <PreviewCarousel activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
           <div className="container p-3 mb-3">
             <div className="row">
