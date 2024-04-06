@@ -34,7 +34,7 @@ export default function PDFDoc({ headerIcon, headerText, name,
       <Page size="A4" style={styles.page}>
         <View style={styles.border}>
           {headerIcon.checked &&
-            <Image src={bappa} style={{ height: '6vh', alignSelf: 'center', paddingTop: 5 }}></Image>
+            <Image src={bappa} style={{ height: '50px', alignSelf: 'center', paddingTop: 5 }}></Image>
           }
           {headerText.checked &&
             <View style={{ paddingTop: 5, alignSelf: 'center' }}>

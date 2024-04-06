@@ -55,7 +55,6 @@ export default function App() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const showPDFPreview = false;
-  const showHTMLPreview = true;
 
   const addField = (moreFields, setMoreFields) => {
     setMoreFields([...moreFields, { name: "", value: "" }]);
@@ -138,9 +137,8 @@ export default function App() {
 
       {preview ?
         <section className="fluid-container text-center">
-          {/* uncomment below div while comparing pdf and html side by side */}
-          {/* <div className="row justify-content-center mb-3"> */}
           {/* {showPDFPreview && (
+            <div className="row justify-content-center mb-3">
               <div className="col">
                 <PDFViewer width="380" height="540" showToolbar={false}>
                   <PDFDoc
@@ -148,28 +146,47 @@ export default function App() {
                     morePersonalFields={morePersonalFields}
                     moreFamilyFields={moreFamilyFields}
                     moreContactFields={moreContactFields}
+                    index={activeSlide}
                   />
                 </PDFViewer>
               </div>
-            )} */}
-          <div className="mb-3">{/** comment this line when comparing pdf/html */}
-            {showHTMLPreview && (
-              <div className="d-flex justify-content-center"> {/* Add d-flex and justify-content-center classes */}
-                <div style={{ width: 380, height: 540, backgroundColor: 'white' }}>
-                  <PreviewBiodata {...biodata} morePersonalFields={morePersonalFields}
+              <div className="col d-flex justify-content-center">
+                <div id="htmlPreview" style={{ width: 380, height: 540, backgroundColor: 'white' }}>
+                  <PreviewBiodata
+                    biodata={biodata}
+                    morePersonalFields={morePersonalFields}
                     moreFamilyFields={moreFamilyFields}
-                    moreContactFields={moreContactFields} index={activeSlide} />
+                    moreContactFields={moreContactFields}
+                    index={activeSlide} />
                 </div>
               </div>
-            )}
-          </div>
+            </div>
+          )} */}
+
+
+          {!showPDFPreview && (
+            <div className="row mb-3" style={{ overflow: 'hidden' }}>
+              <div className="col d-flex justify-content-center">
+                <div id="htmlPreview" style={{ width: 380, height: 540, backgroundColor: 'white' }}>
+                  <PreviewBiodata
+                    biodata={biodata}
+                    morePersonalFields={morePersonalFields}
+                    moreFamilyFields={moreFamilyFields}
+                    moreContactFields={moreContactFields}
+                    index={activeSlide} />
+                </div>
+              </div>
+            </div>
+          )}
+
 
           <PreviewCarousel activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
           <div className="container p-3 mb-3">
             <div className="row">
               <div className="col">
                 <button className="btn btn-secondary mx-3" onClick={handlePreview}><i className="bi bi-pencil pe-1"></i>Edit biodata</button>
-                <BlobProvider document={<PDFDoc {...biodata}
+                <button className="btn btn-primary mx-3" onClick={() => { }}><i className="bi bi-download pe-1"></i>Download</button>
+                {/* <BlobProvider document={<PDFDoc {...biodata}
                   morePersonalFields={morePersonalFields}
                   moreFamilyFields={moreFamilyFields}
                   moreContactFields={moreContactFields}
@@ -178,7 +195,7 @@ export default function App() {
                   (loading ? <button className="btn btn-primary mx-3" disabled><i className="bi bi-download pe-1"></i>Download</button> :
                     <button className="btn btn-primary mx-3" onClick={() => handleDownload(blob)}><i className="bi bi-download pe-1"></i>Download</button>)
                   }
-                </BlobProvider>
+                </BlobProvider> */}
               </div>
             </div>
           </div>

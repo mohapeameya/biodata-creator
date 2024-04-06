@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import bappa from '../ganpati1.png';
 import { convertDateFormat, convertTo12HourFormat } from '../utilities';
 import { rashiValues, complexionValues, heightValues, weightValues, bloodGroupValues } from "../constants";
@@ -8,39 +8,79 @@ const previewDims = {
   height: 540
 };
 
-export default function PreviewBiodata({ headerIcon, headerText, name,
+const templates = [
+  {
+    name: 'Basic',
+    border: false,
+    image: false,
+    header: false
+  },
+  {
+    name: 'Standard',
+    border: true,
+    image: true,
+    header: true
+  }
+];
+
+const StandardPageBorder = {
+  borderWidth: '1px',
+  borderStyle: 'solid',
+  borderColor: 'black',
+  borderRadius: '5px',
+};
+
+const BasicPageBorder = {
+  borderWidth: '1px',
+  borderStyle: 'solid',
+  borderColor: 'white',
+  borderRadius: '5px',
+};
+
+const PageSizeAndMargin = {
+  height: previewDims.height - 26,
+  width: previewDims.width - 26,
+  margin: '13px',
+  backgroundColor: 'white'
+}
+
+const Preview = ({ headerIcon, headerText, name,
   dob, tob, pob, rashi, nakshatra, complexion,
   bloodGroup, height, weight, education, job, religionCaste,
   morePersonalFields, father, fatherJob,
   mother, motherJob, moreFamilyFields,
   contact, address, moreContactFields,
-  image }) {
-
-  useEffect(() => {
-    console.log('Biodata preview component loaded');
-  }, []);
+  image, style }) => {
 
   const row = { flexDirection: 'row', display: 'flex', paddingBottom: 1.5 };
   const common = { fontSize: 7, textAlign: 'left' };
   const label = { flex: '1', ...common };
   const valuePersonal = { flex: '1', ...common };
 
-  const valueFamilyContact = image.checked ?
+  const valueFamilyContact = image.checked && style.image ?
     { flex: '2', ...common } :
     { flex: '1', ...common };
 
+  useEffect(() => {
+    console.log('Preview component loaded');
+  }, []);
+
   return (
-    <div style={styles.border}>
-      {headerIcon.checked &&
-        <img src={bappa} style={{ height: '5vh', paddingTop: 5 }} alt="Header Icon" />}
-      {headerText.checked &&
+    <div style={style.pageStyle}>
+      {headerIcon.checked && style.header &&
+        <img src={bappa} style={{ height: '35px', paddingTop: 5 }} alt="Header Icon" />}
+      {headerText.checked && style.header &&
         <div style={{ paddingTop: 2, fontSize: 10 }}>
           {headerText.value}
+        </div>}
+      {!style.header &&
+        <div style={{ paddingTop: 2, fontSize: 10 }}>
+          BIO DATA
         </div>}
       <div style={{ display: 'flex', flexDirection: 'column', paddingLeft: 18, paddingRight: 18, paddingTop: 2 }}>
         <div style={{ textAlign: 'left', fontSize: 9, paddingTop: 7 }}>PERSONAL DETAILS</div>
         <div style={{ display: 'flex', flexDirection: 'row', fontSize: 12 }}>
-          <div style={image.checked ? { flex: '2' } : { flex: '1' }}>
+          <div style={image.checked && style.image ? { flex: '2' } : { flex: '1' }}>
             {name.checked &&
               <div style={row}>
                 <div style={label}>Name</div>
@@ -114,7 +154,7 @@ export default function PreviewBiodata({ headerIcon, headerText, name,
             ))}
           </div>
 
-          {image.checked &&
+          {image.checked && style.image &&
             <div style={{ flex: '1', justifyContent: 'center', alignItems: 'center' }}>
               <img src={image.value} style={{ width: '100%' }} alt="Preview Image" />
             </div>
@@ -175,20 +215,35 @@ export default function PreviewBiodata({ headerIcon, headerText, name,
         </div>
       </div>
     </div>
+
+  )
+}
+
+export default function PreviewBiodata({ biodata, morePersonalFields,
+  moreFamilyFields,
+  moreContactFields, index }) {
+
+  const template = templates[index];
+  const style = {
+    pageStyle: {
+      ...PageSizeAndMargin, // Always apply PageSizeAndMargin
+      ...(template.border ? StandardPageBorder : BasicPageBorder), // Conditionally apply PageBorder
+    },
+    image: template.image,
+    header: template.header,
+  };
+
+  useEffect(() => {
+    console.log('Biodata preview component loaded');
+  }, []);
+
+  return (
+    <Preview {...biodata}
+      morePersonalFields={morePersonalFields}
+      moreFamilyFields={moreFamilyFields}
+      moreContactFields={moreContactFields}
+      style={style} />
   );
 }
 
-const styles = {
-  border: {
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: 'black',
-    borderRadius: '5px',
-    height: previewDims.height - 26,
-    width: previewDims.width - 26,
-    margin: '13px'
-  },
-  detailRow: {
-    
-  }
-};
+
