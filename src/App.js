@@ -17,7 +17,7 @@ import PreviewBiodata from "./components/PreviewBiodata";
 export default function App() {
 
   const [biodata, setBiodata] = useState(
-    testState ||
+    // testState ||
     {
       headerIcon: { checked: true },
       headerText: { checked: true, value: '|| Shree Ganesh ||' },
@@ -52,7 +52,7 @@ export default function App() {
 
   const [preview, setPreview] = useState(false);
 
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(1);
 
   const showPDFPreview = false;
 
@@ -180,13 +180,13 @@ export default function App() {
           )}
 
 
-          <PreviewCarousel activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
+          {/* <PreviewCarousel activeSlide={activeSlide} setActiveSlide={setActiveSlide} /> */}
           <div className="container p-3 mb-3">
             <div className="row">
               <div className="col">
                 <button className="btn btn-secondary mx-3" onClick={handlePreview}><i className="bi bi-pencil pe-1"></i>Edit biodata</button>
-                <button className="btn btn-primary mx-3" onClick={() => { }}><i className="bi bi-download pe-1"></i>Download</button>
-                {/* <BlobProvider document={<PDFDoc {...biodata}
+                {/* <button className="btn btn-primary mx-3" onClick={() => { }}><i className="bi bi-download pe-1"></i>Download</button> */}
+                <BlobProvider document={<PDFDoc {...biodata}
                   morePersonalFields={morePersonalFields}
                   moreFamilyFields={moreFamilyFields}
                   moreContactFields={moreContactFields}
@@ -195,7 +195,7 @@ export default function App() {
                   (loading ? <button className="btn btn-primary mx-3" disabled><i className="bi bi-download pe-1"></i>Download</button> :
                     <button className="btn btn-primary mx-3" onClick={() => handleDownload(blob)}><i className="bi bi-download pe-1"></i>Download</button>)
                   }
-                </BlobProvider> */}
+                </BlobProvider>
               </div>
             </div>
           </div>
