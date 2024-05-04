@@ -86,6 +86,7 @@ export const testState = {
     sisterElderJob: { checked: true, value: 'Dentist' },
     sisterYounger: { checked: true, value: 'Nisha Sawant' },
     sisterYoungerJob: { checked: true, value: 'Persuing CS Engg.' },
+    relatives: { checked: true, value: 'Thakare, Desale, Pingale, Harad, Kor, Gharat' },
     contact: { checked: true, value: '9876543210' },
     address: { checked: true, value: 'A12, Swargarohini Apartment, Lok Chowk, Vrindavan Road, Buldana, 411011' },
     image: { checked: false, value: '' },
