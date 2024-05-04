@@ -55,6 +55,7 @@ const Preview = ({
   mother, motherJob, motherNative,
   brotherElder, brotherElderJob, brotherYounger, brotherYoungerJob,
   sisterElder, sisterElderJob, sisterYounger, sisterYoungerJob,
+  relatives,
   moreFamilyFields,
   contact, address,
   moreContactFields,
@@ -250,6 +251,11 @@ const Preview = ({
               <div style={row}>
                 <div style={label}>Occupation</div>
                 <div style={valueFamilyContact}>: {sisterYoungerJob.value}</div>
+              </div>}
+            {relatives.checked &&
+              <div style={row}>
+                <div style={label}>Relatives</div>
+                <div style={valueFamilyContact}>: {relatives.value}</div>
               </div>}
             {moreFamilyFields.map((item, index) => (
               <div key={index} style={row}>

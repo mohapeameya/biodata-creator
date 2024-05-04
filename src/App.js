@@ -50,6 +50,7 @@ export default function App() {
       sisterElderJob: { checked: false, value: '' },
       sisterYounger: { checked: false, value: '' },
       sisterYoungerJob: { checked: false, value: '' },
+      relatives: { checked: false, value: '' },
       contact: { checked: true, value: '' },
       address: { checked: true, value: '' },
       image: { checked: false, value: '' },
@@ -1021,6 +1022,30 @@ export default function App() {
                         value={biodata.sisterYoungerJob.value}
                         onChange={e => setBiodata({ ...biodata, sisterYoungerJob: { checked: biodata.sisterYoungerJob.checked, value: e.target.value } })}
                         disabled={!biodata.sisterYoungerJob.checked}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="col"></div>
+              </div>
+
+              <div className="row">
+                <div className="col"></div>
+                <div className="col-lg-8">
+                  <div className="row align-items-center p-1">
+                    <div className="col-auto form-switch">
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.relatives.checked}
+                        onChange={e => setBiodata({ ...biodata, relatives: { checked: e.target.checked, value: biodata.relatives.value } })} />
+                    </div>
+                    <div className={`col text-start ${biodata.relatives.checked ? '' : 'text-muted'}`}>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Relatives</label>
+                    </div>
+                    <div className="col text-start">
+                      <input className="form-control" placeholder="Enter relatives' names"
+                        value={biodata.relatives.value}
+                        onChange={e => setBiodata({ ...biodata, relatives: { checked: biodata.relatives.checked, value: e.target.value } })}
+                        disabled={!biodata.relatives.checked}
                       />
                     </div>
                   </div>

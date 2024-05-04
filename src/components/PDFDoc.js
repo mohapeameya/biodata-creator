@@ -17,6 +17,7 @@ export default function PDFDoc({
   mother, motherJob, motherNative,
   brotherElder, brotherElderJob, brotherYounger, brotherYoungerJob,
   sisterElder, sisterElderJob, sisterYounger, sisterYoungerJob,
+  relatives,
   moreFamilyFields,
   contact, address,
   moreContactFields,
@@ -208,6 +209,11 @@ export default function PDFDoc({
                 <View style={styles.detailRow}>
                   <Text style={familyContactFlex.label}>Occupation</Text>
                   <Text style={familyContactFlex.value}>: {sisterYoungerJob.value}</Text>
+                </View>}
+              {relatives.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Relatives</Text>
+                  <Text style={familyContactFlex.value}>: {relatives.value}</Text>
                 </View>}
               {moreFamilyFields.map((item, index) => (
                 <View key={index} style={styles.detailRow}>
