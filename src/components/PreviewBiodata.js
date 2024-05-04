@@ -44,15 +44,20 @@ const PageSizeAndMargin = {
   backgroundColor: 'white'
 }
 
-const Preview = ({ 
-  headerIcon, headerText, name,
-  dob, tob, pob, rashi, nakshatra,
-  complexion, bloodGroup, height, 
-  weight, education, job, salary,
+const Preview = ({
+  headerIcon, headerText,
+  name, dob, tob, pob, rashi, nakshatra,
+  complexion, bloodGroup, height, weight,
+  education, job, salary,
   hobbies, religionCaste,
-  morePersonalFields, father, fatherJob, fatherNative,
-  mother, motherJob, motherNative, moreFamilyFields,
-  contact, address, moreContactFields,
+  morePersonalFields,
+  father, fatherJob, fatherNative,
+  mother, motherJob, motherNative,
+  brotherElder, brotherElderJob, brotherYounger, brotherYoungerJob,
+  sisterElder, sisterElderJob, sisterYounger, sisterYoungerJob,
+  moreFamilyFields,
+  contact, address,
+  moreContactFields,
   image, style }) => {
 
   const row = { flexDirection: 'row', display: 'flex', paddingBottom: 1.5 };
@@ -205,6 +210,46 @@ const Preview = ({
               <div style={row}>
                 <div style={label}>Native</div>
                 <div style={valueFamilyContact}>: {motherNative.value}</div>
+              </div>}
+            {brotherElder.checked &&
+              <div style={row}>
+                <div style={label}>Brother (Elder)</div>
+                <div style={valueFamilyContact}>: {brotherElder.value}</div>
+              </div>}
+            {brotherElderJob.checked &&
+              <div style={row}>
+                <div style={label}>Occupation</div>
+                <div style={valueFamilyContact}>: {brotherElderJob.value}</div>
+              </div>}
+            {brotherYounger.checked &&
+              <div style={row}>
+                <div style={label}>Brother (Younger)</div>
+                <div style={valueFamilyContact}>: {brotherYounger.value}</div>
+              </div>}
+            {brotherYoungerJob.checked &&
+              <div style={row}>
+                <div style={label}>Occupation</div>
+                <div style={valueFamilyContact}>: {brotherYoungerJob.value}</div>
+              </div>}
+            {sisterElder.checked &&
+              <div style={row}>
+                <div style={label}>Sister (Elder)</div>
+                <div style={valueFamilyContact}>: {sisterElder.value}</div>
+              </div>}
+            {sisterElderJob.checked &&
+              <div style={row}>
+                <div style={label}>Occupation</div>
+                <div style={valueFamilyContact}>: {sisterElderJob.value}</div>
+              </div>}
+            {sisterYounger.checked &&
+              <div style={row}>
+                <div style={label}>Sister (Younger)</div>
+                <div style={valueFamilyContact}>: {sisterYounger.value}</div>
+              </div>}
+            {sisterYoungerJob.checked &&
+              <div style={row}>
+                <div style={label}>Occupation</div>
+                <div style={valueFamilyContact}>: {sisterYoungerJob.value}</div>
               </div>}
             {moreFamilyFields.map((item, index) => (
               <div key={index} style={row}>

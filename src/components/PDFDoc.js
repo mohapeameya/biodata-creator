@@ -6,15 +6,17 @@ import { useEffect } from 'react';
 import bappa from '../ganpati1.png';
 import { convertDateFormat, convertTo12HourFormat } from '../utilities';
 
-export default function PDFDoc({ 
-  headerIcon, headerText, name,
-  dob, tob, pob, rashi, nakshatra,
-  complexion, bloodGroup, height,
-  weight, education, job,
-  salary, hobbies, religionCaste,
+export default function PDFDoc({
+  headerIcon, headerText,
+  name, dob, tob, pob, rashi, nakshatra,
+  complexion, bloodGroup, height, weight,
+  education, job, salary,
+  hobbies, religionCaste,
   morePersonalFields,
   father, fatherJob, fatherNative,
   mother, motherJob, motherNative,
+  brotherElder, brotherElderJob, brotherYounger, brotherYoungerJob,
+  sisterElder, sisterElderJob, sisterYounger, sisterYoungerJob,
   moreFamilyFields,
   contact, address,
   moreContactFields,
@@ -30,7 +32,7 @@ export default function PDFDoc({
     console.log('Doc component loaded')
   }, [])
 
-  
+
 
   return (
     <Document>
@@ -166,6 +168,46 @@ export default function PDFDoc({
                 <View style={styles.detailRow}>
                   <Text style={familyContactFlex.label}>Native</Text>
                   <Text style={familyContactFlex.value}>: {motherNative.value}</Text>
+                </View>}
+              {brotherElder.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Brother (Elder)</Text>
+                  <Text style={familyContactFlex.value}>: {brotherElder.value}</Text>
+                </View>}
+              {brotherElderJob.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Occupation</Text>
+                  <Text style={familyContactFlex.value}>: {brotherElderJob.value}</Text>
+                </View>}
+              {brotherYounger.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Brother (Younger)</Text>
+                  <Text style={familyContactFlex.value}>: {brotherYounger.value}</Text>
+                </View>}
+              {brotherYoungerJob.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Occupation</Text>
+                  <Text style={familyContactFlex.value}>: {brotherYoungerJob.value}</Text>
+                </View>}
+              {sisterElder.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Sister (Elder)</Text>
+                  <Text style={familyContactFlex.value}>: {sisterElder.value}</Text>
+                </View>}
+              {sisterElderJob.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Occupation</Text>
+                  <Text style={familyContactFlex.value}>: {sisterElderJob.value}</Text>
+                </View>}
+              {sisterYounger.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Sister (Younger)</Text>
+                  <Text style={familyContactFlex.value}>: {sisterYounger.value}</Text>
+                </View>}
+              {sisterYoungerJob.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Occupation</Text>
+                  <Text style={familyContactFlex.value}>: {sisterYoungerJob.value}</Text>
                 </View>}
               {moreFamilyFields.map((item, index) => (
                 <View key={index} style={styles.detailRow}>
