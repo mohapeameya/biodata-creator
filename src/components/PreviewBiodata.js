@@ -44,11 +44,14 @@ const PageSizeAndMargin = {
   backgroundColor: 'white'
 }
 
-const Preview = ({ headerIcon, headerText, name,
-  dob, tob, pob, rashi, nakshatra, complexion,
-  bloodGroup, height, weight, education, job, religionCaste,
-  morePersonalFields, father, fatherJob,
-  mother, motherJob, moreFamilyFields,
+const Preview = ({ 
+  headerIcon, headerText, name,
+  dob, tob, pob, rashi, nakshatra,
+  complexion, bloodGroup, height, 
+  weight, education, job, salary,
+  hobbies, religionCaste,
+  morePersonalFields, father, fatherJob, fatherNative,
+  mother, motherJob, motherNative, moreFamilyFields,
   contact, address, moreContactFields,
   image, style }) => {
 
@@ -146,6 +149,16 @@ const Preview = ({ headerIcon, headerText, name,
                 <div style={label}>Occupation</div>
                 <div style={valuePersonal}>: {job.value}</div>
               </div>}
+            {salary.checked &&
+              <div style={row}>
+                <div style={label}>Salary</div>
+                <div style={valuePersonal}>: {salary.value}</div>
+              </div>}
+            {hobbies.checked &&
+              <div style={row}>
+                <div style={label}>Hobbies</div>
+                <div style={valuePersonal}>: {hobbies.value}</div>
+              </div>}
             {morePersonalFields.map((item, index) => (
               <div key={index} style={row}>
                 <div style={label}>{item.name}</div>
@@ -173,6 +186,11 @@ const Preview = ({ headerIcon, headerText, name,
                 <div style={label}>Occupation</div>
                 <div style={valueFamilyContact}>: {fatherJob.value}</div>
               </div>}
+            {fatherNative.checked &&
+              <div style={row}>
+                <div style={label}>Native</div>
+                <div style={valueFamilyContact}>: {fatherNative.value}</div>
+              </div>}
             {mother.checked &&
               <div style={row}>
                 <div style={label}>Mother</div>
@@ -182,6 +200,11 @@ const Preview = ({ headerIcon, headerText, name,
               <div style={row}>
                 <div style={label}>Occupation</div>
                 <div style={valueFamilyContact}>: {motherJob.value}</div>
+              </div>}
+            {motherNative.checked &&
+              <div style={row}>
+                <div style={label}>Native</div>
+                <div style={valueFamilyContact}>: {motherNative.value}</div>
               </div>}
             {moreFamilyFields.map((item, index) => (
               <div key={index} style={row}>

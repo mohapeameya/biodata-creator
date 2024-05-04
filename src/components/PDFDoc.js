@@ -6,12 +6,15 @@ import { useEffect } from 'react';
 import bappa from '../ganpati1.png';
 import { convertDateFormat, convertTo12HourFormat } from '../utilities';
 
-export default function PDFDoc({ headerIcon, headerText, name,
-  dob, tob, pob, rashi, nakshatra, complexion,
-  bloodGroup, height, weight, education, job, religionCaste,
+export default function PDFDoc({ 
+  headerIcon, headerText, name,
+  dob, tob, pob, rashi, nakshatra,
+  complexion, bloodGroup, height,
+  weight, education, job,
+  salary, hobbies, religionCaste,
   morePersonalFields,
-  father, fatherJob,
-  mother, motherJob,
+  father, fatherJob, fatherNative,
+  mother, motherJob, motherNative,
   moreFamilyFields,
   contact, address,
   moreContactFields,
@@ -109,6 +112,16 @@ export default function PDFDoc({ headerIcon, headerText, name,
                     <Text style={personalDetailsFlex.label}>Occupation</Text>
                     <Text style={personalDetailsFlex.value}>: {job.value}</Text>
                   </View>}
+                {salary.checked &&
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Salary</Text>
+                    <Text style={personalDetailsFlex.value}>: {salary.value}</Text>
+                  </View>}
+                {hobbies.checked &&
+                  <View style={styles.detailRow}>
+                    <Text style={personalDetailsFlex.label}>Hobbies</Text>
+                    <Text style={personalDetailsFlex.value}>: {hobbies.value}</Text>
+                  </View>}
                 {morePersonalFields.map((item, index) => (
                   <View key={index} style={styles.detailRow}>
                     <Text style={personalDetailsFlex.label}>{item.name}</Text>
@@ -134,6 +147,11 @@ export default function PDFDoc({ headerIcon, headerText, name,
                   <Text style={familyContactFlex.label}>Occupation</Text>
                   <Text style={familyContactFlex.value}>: {fatherJob.value}</Text>
                 </View>}
+              {fatherNative.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Native</Text>
+                  <Text style={familyContactFlex.value}>: {fatherNative.value}</Text>
+                </View>}
               {mother.checked &&
                 <View style={styles.detailRow}>
                   <Text style={familyContactFlex.label}>Mother</Text>
@@ -143,6 +161,11 @@ export default function PDFDoc({ headerIcon, headerText, name,
                 <View style={styles.detailRow}>
                   <Text style={familyContactFlex.label}>Occupation</Text>
                   <Text style={familyContactFlex.value}>: {motherJob.value}</Text>
+                </View>}
+              {motherNative.checked &&
+                <View style={styles.detailRow}>
+                  <Text style={familyContactFlex.label}>Native</Text>
+                  <Text style={familyContactFlex.value}>: {motherNative.value}</Text>
                 </View>}
               {moreFamilyFields.map((item, index) => (
                 <View key={index} style={styles.detailRow}>

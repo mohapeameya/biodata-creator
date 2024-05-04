@@ -34,10 +34,14 @@ export default function App() {
       bloodGroup: { checked: true, value: defaultBloodGroupIndex },
       education: { checked: true, value: '' },
       job: { checked: true, value: '' },
+      salary: { checked: true, value: '' },
+      hobbies: { checked: true, value: '' },
       father: { checked: true, value: '' },
       fatherJob: { checked: true, value: '' },
+      fatherNative : { checked: true, value: '' },
       mother: { checked: true, value: '' },
       motherJob: { checked: true, value: '' },
+      motherNative : { checked: true, value: '' },
       contact: { checked: true, value: '' },
       address: { checked: true, value: '' },
       image: { checked: false, value: '' },
@@ -589,6 +593,54 @@ export default function App() {
                 <div className="col"></div>
               </div>
 
+              <div className="row">
+                <div className="col"></div>
+                <div className="col-lg-8">
+                  <div className="row align-items-center p-1">
+                    <div className="col-auto form-switch">
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.salary.checked}
+                        onChange={e => setBiodata({ ...biodata, salary: { checked: e.target.checked, value: biodata.salary.value } })} />
+                    </div>
+                    <div className={`col text-start ${biodata.salary.checked ? '' : 'text-muted'}`}>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Salary</label>
+                    </div>
+                    <div className="col text-start">
+                      <input className="form-control" placeholder="Enter salary e.g. 50000/month"
+                        value={biodata.salary.value}
+                        onChange={e => setBiodata({ ...biodata, salary: { checked: biodata.salary.checked, value: e.target.value } })}
+                        disabled={!biodata.salary.checked}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="col"></div>
+              </div>
+
+              <div className="row">
+                <div className="col"></div>
+                <div className="col-lg-8">
+                  <div className="row align-items-center p-1">
+                    <div className="col-auto form-switch">
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.hobbies.checked}
+                        onChange={e => setBiodata({ ...biodata, hobbies: { checked: e.target.checked, value: biodata.hobbies.value } })} />
+                    </div>
+                    <div className={`col text-start ${biodata.hobbies.checked ? '' : 'text-muted'}`}>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Hobbies</label>
+                    </div>
+                    <div className="col text-start">
+                      <input className="form-control" placeholder="Enter hobbies"
+                        value={biodata.hobbies.value}
+                        onChange={e => setBiodata({ ...biodata, hobbies: { checked: biodata.hobbies.checked, value: e.target.value } })}
+                        disabled={!biodata.hobbies.checked}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="col"></div>
+              </div>
+
               {
                 morePersonalFields.map((field, index) =>
                 (<div className="row" key={index}>
@@ -644,7 +696,7 @@ export default function App() {
                         onChange={e => setBiodata({ ...biodata, father: { checked: e.target.checked, value: biodata.father.value } })} />
                     </div>
                     <div className={`col text-start ${biodata.father.checked ? '' : 'text-muted'}`}>
-                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Father's Name</label>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Father</label>
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter father's full name"
@@ -667,7 +719,7 @@ export default function App() {
                         onChange={e => setBiodata({ ...biodata, fatherJob: { checked: e.target.checked, value: biodata.fatherJob.value } })} />
                     </div>
                     <div className={`col text-start ${biodata.fatherJob.checked ? '' : 'text-muted'}`}>
-                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Father's Occupation</label>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Occupation</label>
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter father's occupation"
@@ -687,11 +739,35 @@ export default function App() {
                   <div className="row align-items-center p-1">
                     <div className="col-auto form-switch">
                       <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.fatherNative.checked}
+                        onChange={e => setBiodata({ ...biodata, fatherNative: { checked: e.target.checked, value: biodata.fatherNative.value } })} />
+                    </div>
+                    <div className={`col text-start ${biodata.fatherNative.checked ? '' : 'text-muted'}`}>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Native</label>
+                    </div>
+                    <div className="col text-start">
+                      <input className="form-control" placeholder="Enter father's native"
+                        value={biodata.fatherNative.value}
+                        onChange={e => setBiodata({ ...biodata, fatherNative: { checked: biodata.fatherNative.checked, value: e.target.value } })}
+                        disabled={!biodata.fatherNative.checked}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="col"></div>
+              </div>
+
+              <div className="row">
+                <div className="col"></div>
+                <div className="col-lg-8">
+                  <div className="row align-items-center p-1">
+                    <div className="col-auto form-switch">
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
                         checked={biodata.mother.checked}
                         onChange={e => setBiodata({ ...biodata, mother: { checked: e.target.checked, value: biodata.mother.value } })} />
                     </div>
                     <div className={`col text-start ${biodata.mother.checked ? '' : 'text-muted'}`}>
-                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Mother's Name</label>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Mother</label>
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter mother's full name"
@@ -714,13 +790,37 @@ export default function App() {
                         onChange={e => setBiodata({ ...biodata, motherJob: { checked: e.target.checked, value: biodata.motherJob.value } })} />
                     </div>
                     <div className={`col text-start ${biodata.motherJob.checked ? '' : 'text-muted'}`}>
-                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Mother's Occupation</label>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Occupation</label>
                     </div>
                     <div className="col text-start">
                       <input className="form-control" placeholder="Enter mother's occupation"
                         value={biodata.motherJob.value}
                         onChange={e => setBiodata({ ...biodata, motherJob: { checked: biodata.motherJob.checked, value: e.target.value } })}
                         disabled={!biodata.motherJob.checked}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="col"></div>
+              </div>
+
+              <div className="row">
+                <div className="col"></div>
+                <div className="col-lg-8">
+                  <div className="row align-items-center p-1">
+                    <div className="col-auto form-switch">
+                      <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                        checked={biodata.motherNative.checked}
+                        onChange={e => setBiodata({ ...biodata, motherNative: { checked: e.target.checked, value: biodata.motherNative.value } })} />
+                    </div>
+                    <div className={`col text-start ${biodata.motherNative.checked ? '' : 'text-muted'}`}>
+                      <label className="form-check-label" htmlFor="flexSwitchCheckChecked">Native</label>
+                    </div>
+                    <div className="col text-start">
+                      <input className="form-control" placeholder="Enter mother's native"
+                        value={biodata.motherNative.value}
+                        onChange={e => setBiodata({ ...biodata, motherNative: { checked: biodata.motherNative.checked, value: e.target.value } })}
+                        disabled={!biodata.motherNative.checked}
                       />
                     </div>
                   </div>
