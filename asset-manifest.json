@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/biodata-creator-app/static/css/main.2128c284.css",
+    "main.js": "/biodata-creator-app/static/js/main.014af815.js",
+    "static/js/453.ff80c83a.chunk.js": "/biodata-creator-app/static/js/453.ff80c83a.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/biodata-creator-app/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/biodata-creator-app/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
+    "index.html": "/biodata-creator-app/index.html",
+    "main.2128c284.css.map": "/biodata-creator-app/static/css/main.2128c284.css.map",
+    "main.014af815.js.map": "/biodata-creator-app/static/js/main.014af815.js.map",
+    "453.ff80c83a.chunk.js.map": "/biodata-creator-app/static/js/453.ff80c83a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2128c284.css",
+    "static/js/main.014af815.js"
+  ]
+}
