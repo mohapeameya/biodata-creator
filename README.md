@@ -15,7 +15,7 @@ biodata-creator-app.git is public
 git remote set-url source https://github.com/mohapeameya/biodata-creator-source.git
 biodata-creator-source.git is private
 
-git push -u source main
+git push source main
 This will push code to private repo
 
 npm run deploy will run ghpages which will use origin pointing to public repo for deployment!!!
