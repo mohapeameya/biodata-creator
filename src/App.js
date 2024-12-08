@@ -6,6 +6,9 @@ import { PDFViewer, BlobProvider } from '@react-pdf/renderer';
 import PDFDoc from "./components/PDFDoc";
 
 import bappa from './ganpati1.png';
+import man from './man.png';
+import woman from './woman.png';
+
 import './App.css';
 
 import { testState } from "./constants";
@@ -215,6 +218,19 @@ export default function App() {
         </section> :
 
         <>
+          <section className="fluid-container text-center">
+            <div className="container shadow p-3 mb-3 bg-white rounded">
+              <div className="row">
+                <div className="col-md-6 p-3"> {/* col-md-6 for equal columns */}
+                  <img src={man} alt="man" className="img-fluid" /> {/* img-fluid for responsive images */}
+                </div>
+                <div className="col-md-6 p-3">
+                  <img src={woman} alt="woman" className="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section className="fluid-container text-center">
             <div className="container shadow p-3 mb-3 bg-white rounded">
               <h3>
