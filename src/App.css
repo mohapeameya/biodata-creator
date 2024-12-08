@@ -6,6 +6,11 @@
     opacity: 0.5;
 }
 
-.sample {
-  width: 40min;
+.loading {
+  font-size: 1.5rem;
+  color: white;
+  display: flex;
+  justify-content: center; /* Horizontally center */
+  align-items: center;    /* Vertically center */
+  height: 100vh;    
 }
