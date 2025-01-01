@@ -12,6 +12,7 @@ Create another public repo for the app and add it as remote origin as gh-pages n
 Example
 git remote set-url origin https://github.com/mohapeameya/biodata-creator-app.git
 biodata-creator-app.git is public
+
 git remote set-url source https://github.com/mohapeameya/biodata-creator-source.git
 biodata-creator-source.git is private
 
