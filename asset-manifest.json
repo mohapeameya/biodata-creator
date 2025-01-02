@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/biodata-creator-app/static/css/main.2128c284.css",
-    "main.js": "/biodata-creator-app/static/js/main.014af815.js",
-    "static/js/453.ff80c83a.chunk.js": "/biodata-creator-app/static/js/453.ff80c83a.chunk.js",
-    "static/media/bootstrap-icons.woff?": "/biodata-creator-app/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
-    "static/media/bootstrap-icons.woff2?": "/biodata-creator-app/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
-    "index.html": "/biodata-creator-app/index.html",
-    "main.2128c284.css.map": "/biodata-creator-app/static/css/main.2128c284.css.map",
-    "main.014af815.js.map": "/biodata-creator-app/static/js/main.014af815.js.map",
-    "453.ff80c83a.chunk.js.map": "/biodata-creator-app/static/js/453.ff80c83a.chunk.js.map"
+    "main.css": "/static/css/main.3be48e69.css",
+    "main.js": "/static/js/main.d2c8fa3a.js",
+    "static/js/453.ff80c83a.chunk.js": "/static/js/453.ff80c83a.chunk.js",
+    "static/media/woman.png": "/static/media/woman.2c9417bab6ff426644db.png",
+    "static/media/bootstrap-icons.woff?": "/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
+    "static/media/man.png": "/static/media/man.f62e9933fcfd54740182.png",
+    "index.html": "/index.html",
+    "main.3be48e69.css.map": "/static/css/main.3be48e69.css.map",
+    "main.d2c8fa3a.js.map": "/static/js/main.d2c8fa3a.js.map",
+    "453.ff80c83a.chunk.js.map": "/static/js/453.ff80c83a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2128c284.css",
-    "static/js/main.014af815.js"
+    "static/css/main.3be48e69.css",
+    "static/js/main.d2c8fa3a.js"
   ]
 }
