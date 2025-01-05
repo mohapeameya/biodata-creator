@@ -39,7 +39,7 @@ A simple and efficient web application to create and download marriage biodata. 
 | **Mother**           | Enter mother's name             |
 | **Occupation**       | Enter mother's occupation       |
 | **Native**           | Enter mother's native           |
-| **Custom field       | Enter custom field value        |
+| **Custom field**     | Enter custom field value        |
 |----------------------|---------------------------------|
 
 ---
@@ -50,7 +50,7 @@ A simple and efficient web application to create and download marriage biodata. 
 |----------------------|---------------------------------|
 | **Mobile**           | Enter contact number            |
 | **Address**          | Enter address                   |
-| **Custom field       | Enter custom field value        |
+| **Custom field**     | Enter custom field value        |
 |----------------------|---------------------------------|
 
 ---
@@ -64,8 +64,7 @@ A simple and efficient web application to create and download marriage biodata. 
 
 ## 🚀 Deployment
 
-The app is live on GitHub Pages: [Quick Marriage Biodata Maker](https://mohapeameya.github.io/biodata-maker/)  
-
+The app is live on GitHub Pages: [Quick Marriage Biodata Maker](https://mohapeameya.github.io/biodata-maker/)
 
 ---
 
